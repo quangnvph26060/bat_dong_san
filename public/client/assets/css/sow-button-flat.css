@@ -1,0 +1,100 @@
+.so-widget-sow-button-flat-6d08785a903a .ow-button-base {
+  zoom: 1;
+}
+.so-widget-sow-button-flat-6d08785a903a .ow-button-base:before {
+  content: "";
+  display: block;
+}
+.so-widget-sow-button-flat-6d08785a903a .ow-button-base:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media (max-width: 780px) {
+  .so-widget-sow-button-flat-6d08785a903a
+    .ow-button-base.ow-button-align-center {
+    text-align: center;
+  }
+  .so-widget-sow-button-flat-6d08785a903a
+    .ow-button-base.ow-button-align-center.ow-button-align-justify
+    a {
+    display: inline-block;
+  }
+}
+.so-widget-sow-button-flat-6d08785a903a .ow-button-base a {
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+  font-size: 1em;
+  padding: 1em 2em;
+  background: #ff1000;
+  color: #ffffff !important;
+  border: 1px solid #ff1000;
+  border-width: 1px 0;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  border-radius: 0.25em;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+.so-widget-sow-button-flat-6d08785a903a .ow-button-base a:active,
+.so-widget-sow-button-flat-6d08785a903a .ow-button-base a:hover {
+  color: #ffffff !important;
+}
+.so-widget-sow-button-flat-6d08785a903a
+  .ow-button-base
+  a.ow-button-hover:hover {
+  background: #ff7e0e;
+  border-color: #ff7e0e;
+}
+
+.ow-button-base.ow-button-align-center {
+    text-align: center;
+}
+
+.so-widget-sow-button-flat-1fc26645c20d-29 .ow-button-base {
+    zoom: 1;
+  }
+  .so-widget-sow-button-flat-1fc26645c20d-29 .ow-button-base:before {
+    content: '';
+    display: block;
+  }
+  .so-widget-sow-button-flat-1fc26645c20d-29 .ow-button-base:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  @media (max-width: 780px) {
+    .so-widget-sow-button-flat-1fc26645c20d-29 .ow-button-base.ow-button-align-center {
+      text-align: center;
+    }
+    .so-widget-sow-button-flat-1fc26645c20d-29 .ow-button-base.ow-button-align-center.ow-button-align-justify a {
+      display: inline-block;
+    }
+  }
+  .so-widget-sow-button-flat-1fc26645c20d-29 .ow-button-base a {
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    
+    font-size: 1em;
+    padding: 1em 2em;
+    background: #f70000;
+    color: #ffffff !important;
+    border: 1px solid #f70000;
+    border-width: 1px 0;
+    -webkit-border-radius: 0.25em;
+    -moz-border-radius: 0.25em;
+    border-radius: 0.25em;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  }
+  .so-widget-sow-button-flat-1fc26645c20d-29 .ow-button-base a:active,
+  .so-widget-sow-button-flat-1fc26645c20d-29 .ow-button-base a:hover {
+    color: #ffffff !important;
+  }
+  .so-widget-sow-button-flat-1fc26645c20d-29 .ow-button-base a.ow-button-hover:hover {
+    background: #ff8d0c;
+    border-color: #ff8d0c;
+  }

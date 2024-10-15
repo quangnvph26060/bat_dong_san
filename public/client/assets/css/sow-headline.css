@@ -1,0 +1,88 @@
+.so-widget-sow-headline-default-b844f3af56bf-29
+  .sow-headline-container
+  h2.sow-headline {
+  text-align: center;
+  color: #171a4d;
+  line-height: 1.4em;
+  font-size: 25px;
+}
+@media (max-width: 780px) {
+  .so-widget-sow-headline-default-b844f3af56bf-29
+    .sow-headline-container
+    h2.sow-headline {
+    text-align: center;
+  }
+}
+.so-widget-sow-headline-default-b844f3af56bf-29
+  .sow-headline-container
+  h2.sow-headline
+  a {
+  color: #171a4d;
+}
+.so-widget-sow-headline-default-b844f3af56bf-29
+  .sow-headline-container
+  h3.sow-sub-headline {
+  text-align: center;
+  color: #3c3c3b;
+  line-height: 1.4em;
+  font-size: 22px;
+}
+@media (max-width: 780px) {
+  .so-widget-sow-headline-default-b844f3af56bf-29
+    .sow-headline-container
+    h3.sow-sub-headline {
+    text-align: center;
+  }
+}
+.so-widget-sow-headline-default-b844f3af56bf-29
+  .sow-headline-container
+  h3.sow-sub-headline
+  a {
+  color: #3c3c3b;
+}
+.so-widget-sow-headline-default-b844f3af56bf-29
+  .sow-headline-container
+  .decoration {
+  line-height: 0em;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+@media (max-width: 780px) {
+  .so-widget-sow-headline-default-b844f3af56bf-29
+    .sow-headline-container
+    .decoration {
+    text-align: center;
+  }
+
+  .so-widget-sow-headline-default-e584d75ce6be .sow-headline-container h2.sow-headline {
+    text-align: left;
+}
+}
+.so-widget-sow-headline-default-b844f3af56bf-29
+  .sow-headline-container
+  .decoration
+  .decoration-inside {
+  height: 1px;
+  display: inline-block;
+  border-top: 3px none #3c3c3b;
+  width: 100%;
+  max-width: 80px;
+}
+.so-widget-sow-headline-default-b844f3af56bf-29
+  .sow-headline-container
+  *:first-child {
+  margin-top: 0 !important;
+}
+.so-widget-sow-headline-default-b844f3af56bf-29
+  .sow-headline-container
+  *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.so-widget-sow-headline-default-e584d75ce6be .sow-headline-container h2.sow-headline {
+    text-align: left;
+    color: #ffffff;
+    line-height: 1.4em;
+    font-size: 20px;
+}
