@@ -20,10 +20,13 @@ class SessionConfigController extends Controller
     {
         switch ($request->type) {
             case 'tab-1':
-                return $this->s1($request);
+                return $this->sessionOne($request);
             case 'tab-2':
                 // Xử lý dữ liệu của tab 2
-                return $this->s2($request);
+                return $this->sessionTwo($request);
+            case 'tab-3':
+                    // Xử lý dữ liệu của tab 2
+                return $this->sessionThree($request);
 
             default:
                 return response()->json([
@@ -33,8 +36,9 @@ class SessionConfigController extends Controller
         }
     }
 
-    protected function s1(Request $request)
+    protected function sessionOne(Request $request)
     {
+
         $config = Config::first();
         $data = Validator::make(
             $request->all(),
@@ -118,7 +122,11 @@ class SessionConfigController extends Controller
         }
     }
 
-    protected function s2(Request $request){
+    protected function sessionTwo(Request $request){
+        dd($request->all());
+    }
+
+    protected function sessionThree(Request $request){
         dd($request->all());
     }
 }
