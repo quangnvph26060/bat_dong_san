@@ -1,0 +1,201 @@
+@media only screen and (max-width: 1200px) {
+  .wrap-containerhome,
+  #container,
+  .container-web,
+  .width1170 {
+    width: 960px;
+  }
+  #menu li a {
+    padding: 29.5px 5px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .wrap-containerhome,
+  #container,
+  .container-web,
+  .width1170 {
+    width: 100%;
+  }
+  #header {
+    position: inherit;
+    top: inherit;
+    padding-top: 0 !important;
+  }
+  #contents,
+  #sidebar {
+    width: 100% !important;
+    padding: 0 10px;
+  }
+  .container-web {
+    padding: 0 10px;
+  }
+  #menumobile {
+    display: block;
+  }
+  .primary-menu {
+    display: none;
+  }
+  .wrap-header {
+    height: auto;
+  }
+  .logo {
+    width: 50%;
+    height: 52px;
+  }
+  .tfooter-details {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .tfooterbox {
+    width: 100%;
+    padding: 10px 0;
+  }
+  .imageshoverbox-4 {
+    width: 50% !important;
+  }
+  .imageshoverbox-5,
+  .imageshoverbox-6 {
+    width: 33.3333333% !important;
+  }
+  .imageshoverbox-2 img,
+  .imageshoverbox-2 a,
+  .imageshoverbox-3 img,
+  .imageshoverbox-3 a,
+  .imageshoverbox-4 img,
+  .imageshoverbox-4 a,
+  .imageshoverbox-5 img,
+  .imageshoverbox-5 a,
+  .imageshoverbox-6 img,
+  .imageshoverbox-6 a {
+    height: 190px !important;
+  }
+  .entry-content table {
+    margin-bottom: 0;
+    overflow: hidden;
+    overflow-x: scroll;
+    display: block;
+    white-space: nowrap;
+  }
+  #matbangcanho table {
+    width: 100% !important;
+    overflow-x: hidden;
+    display: inline-table;
+  }
+  .formcontact-left,
+  .formcontact-right {
+    width: 100%;
+    padding: 0 !important;
+    margin-bottom: 10px;
+  }
+  .formcontact {
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+  .contentoverflow {
+    height: auto;
+    overflow: initial;
+  }
+}
+@media only screen and (max-width: 760px) {
+  .shownews-title,
+  .showsingle-title {
+    font-size: 18px !important;
+  }
+  .downdocbox {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .imageshoverbox-3,
+  .imageshoverbox-4,
+  .imageshoverbox-4,
+  .imageshoverbox-6 {
+    width: 50% !important;
+  }
+  .imageshoverbox-2 img,
+  .imageshoverbox-2 a,
+  .imageshoverbox-3 img,
+  .imageshoverbox-3 a,
+  .imageshoverbox-4 img,
+  .imageshoverbox-4 a,
+  .imageshoverbox-5 img,
+  .imageshoverbox-5 a,
+  .imageshoverbox-6 img,
+  .imageshoverbox-6 a {
+    height: 165px !important;
+  }
+  .hotline-header,
+  .scrolltop-wrap {
+    display: none;
+  }
+  .ms-row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .ms-column {
+    width: 100% !important;
+    padding: 10px 0 !important;
+  }
+  /*.ms-column-size-1-2{
+        width:50%!important;
+    }*/
+  .scrolltop-wrap {
+    left: 1rem;
+    right: inherit;
+  }
+  .sow-features-list .sow-features-feature {
+    padding: 0 !important;
+    margin-bottom: 10px !important;
+    clear: both;
+    overflow: hidden;
+  }
+  .sow-features-list .sow-features-feature .sow-icon-container {
+    float: left !important;
+  }
+  .sow-features-list .sow-features-feature .textwidget {
+    font-size: 12px;
+  }
+  .sow-tabs .sow-tabs-tab-container .sow-tabs-tab {
+    display: block !important;
+    font-size: 15px !important;
+    text-align: center;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .downdocbox {
+    width: 100%;
+  }
+  .downdocbox label {
+    padding: 0;
+  }
+  .imageshoverbox-2,
+  .imageshoverbox-3,
+  .imageshoverbox-4,
+  .imageshoverbox-5,
+  .imageshoverbox-6 {
+    width: 100% !important;
+  }
+  .imageshoverbox-2 img,
+  .imageshoverbox-2 a,
+  .imageshoverbox-3 img,
+  .imageshoverbox-3 a,
+  .imageshoverbox-4 img,
+  .imageshoverbox-4 a,
+  .imageshoverbox-5 img,
+  .imageshoverbox-5 a,
+  .imageshoverbox-6 img,
+  .imageshoverbox-6 a {
+    height: auto !important;
+  }
+  .formcontact-left,
+  .formcontact-right {
+    width: 100%;
+    padding: 0 !important;
+  }
+  .boxpdf {
+    padding: 5px 0;
+  }
+  .wrap-boxpdf {
+    min-height: 1px;
+  }
+}
