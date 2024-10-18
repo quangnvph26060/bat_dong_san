@@ -20,7 +20,7 @@
         <!-- Logo Header -->
         <div class="logo-header image-container" data-background-color="dark">
             <a href="{{ route('admin.dashboard') }}" class="logo ">
-                <img src="" alt="navbar brand" class="navbar-brand image" height="50" />
+                <img src="{{showImageStorage($config->logo)}}" alt="navbar brand" class="navbar-brand image" height="50" />
             </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">

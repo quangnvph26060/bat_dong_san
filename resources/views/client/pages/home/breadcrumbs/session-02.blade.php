@@ -19,7 +19,7 @@
                                 <div class="so-widget-sow-headline so-widget-sow-headline-default-797895bb17c3">
                                     <div class="sow-headline-container">
                                         <h2 class="sow-headline">
-                                            CHÍNH SÁCH BÁN HÀNG THÁNG 7/2023
+                                            {{ $session_02->main_title }}
                                         </h2>
                                     </div>
                                 </div>
@@ -29,54 +29,7 @@
                                 data-index="1">
                                 <div class="panel-widget-style panel-widget-style-for-w64abc0f955102-0-0-1">
                                     <div class="textwidget">
-                                        <div dir="auto" style="text-align: justify">
-                                            <span
-                                                class="pq6dq46d tbxw36s4 knj5qynh kvgmc6g5 ditlmg2l oygrvhab nvdbi5me sf5mxxl7 gl3lb2sf hhz5lgdu"><img
-                                                    src="https://static.xx.fbcdn.net/images/emoji.php/v9/tba/1.5/16/2705.png"
-                                                    alt="✅" width="16" height="16" />
-                                                <span style="color: #ff9900"><strong>Chiết
-                                                        khấu</strong></span></span><span style="color: #ff9900"><strong>
-                                                    7%</strong></span>
-                                            Khách hàng ký hợp đồng đến.
-                                        </div>
-                                        <div dir="auto"></div>
-                                        <div dir="auto">
-                                            <span
-                                                class="pq6dq46d tbxw36s4 knj5qynh kvgmc6g5 ditlmg2l oygrvhab nvdbi5me sf5mxxl7 gl3lb2sf hhz5lgdu"><img
-                                                    src="https://static.xx.fbcdn.net/images/emoji.php/v9/tba/1.5/16/2705.png"
-                                                    alt="✅" width="16" height="16" />
-                                                <strong>Hỗ trợ
-                                                    <span style="color: #ff9900">lãi suất
-                                                        vay ngân hàng 0%</span>
-                                                    trong vòng
-                                                    <span style="color: #ff9900">18
-                                                        tháng</span>.</strong></span>
-                                        </div>
-                                        <div dir="auto" style="text-align: justify">
-                                        </div>
-                                        <div dir="auto" style="text-align: justify">
-                                            <span
-                                                class="pq6dq46d tbxw36s4 knj5qynh kvgmc6g5 ditlmg2l oygrvhab nvdbi5me sf5mxxl7 gl3lb2sf hhz5lgdu"><img
-                                                    src="https://static.xx.fbcdn.net/images/emoji.php/v9/tba/1.5/16/2705.png"
-                                                    alt="✅" width="16" height="16" />
-                                            </span><span style="color: #ff9900"><strong>Chiết
-                                                    khấu</strong></span>
-                                            thanh toán sớm lãi suất
-                                            <span style="color: #ff9900"><strong>12</strong><strong><span
-                                                        style="color: #ff9900">%/</span>năm</strong></span>
-                                            cho số tiền thanh toán vượt tiến độ.
-                                        </div>
-                                        <div dir="auto" style="text-align: justify">
-                                        </div>
-                                        <div dir="auto" style="text-align: justify">
-                                            <span
-                                                class="pq6dq46d tbxw36s4 knj5qynh kvgmc6g5 ditlmg2l oygrvhab nvdbi5me sf5mxxl7 gl3lb2sf hhz5lgdu"><img
-                                                    src="https://static.xx.fbcdn.net/images/emoji.php/v9/tba/1.5/16/2705.png"
-                                                    alt="✅" width="16" height="16" />
-                                            </span><strong><span style="color: #ff9900">Hỗ trợ
-                                                    phí</span></strong>
-                                            quản lý vận hành 50% trong 2 năm đầu.
-                                        </div>
+                                        {!! $session_02->text !!}
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +40,7 @@
                                 <div class="so-widget-sow-headline so-widget-sow-headline-default-8fb5e5ea9106">
                                     <div class="sow-headline-container">
                                         <h2 class="sow-headline">
-                                            TẢI BẢNG GIÁ VÀ CHÍNH SÁCH MỚI CẬP NHẬT
+                                            {{ $session_02->extra_title }}
                                         </h2>
                                     </div>
                                 </div>
@@ -115,21 +68,19 @@
                                             </p>
                                             <ul></ul>
                                         </div>
-                                        <form action="/#wpcf7-f32-o7" method="post" class="wpcf7-form init"
-                                            novalidate="novalidate" data-status="init">
+                                        <form action="" method="post" id="myForm">
                                             <div style="display: none">
                                                 <input type="hidden" name="_wpcf7" value="32" />
                                                 <input type="hidden" name="_wpcf7_version" value="5.4.2" />
                                                 <input type="hidden" name="_wpcf7_locale" value="vi" />
                                                 <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f32-o7" />
                                                 <input type="hidden" name="_wpcf7_container_post" value="0" />
-                                                <input type="hidden" name="_wpcf7_posted_data_hash"
-                                                    value="" />
+                                                <input type="hidden" name="_wpcf7_posted_data_hash" value="" />
                                             </div>
                                             <div class="downdoc">
                                                 <div class="downdocbox">
                                                     <label><span class="wpcf7-form-control-wrap your-name"><input
-                                                                type="text" name="your-name" value=""
+                                                                type="text" name="name" value=""
                                                                 size="40"
                                                                 class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
                                                                 aria-required="true" aria-invalid="false"
@@ -137,7 +88,7 @@
                                                 </div>
                                                 <div class="downdocbox">
                                                     <label><span class="wpcf7-form-control-wrap your-tel"><input
-                                                                type="tel" name="your-tel" value=""
+                                                                type="tel" name="phone" value=""
                                                                 size="40"
                                                                 class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel"
                                                                 aria-required="true" aria-invalid="false"
@@ -145,16 +96,14 @@
                                                 </div>
                                                 <div class="downdocbox">
                                                     <label><span class="wpcf7-form-control-wrap your-email"><input
-                                                                type="email" name="your-email" value=""
+                                                                type="email" name="email" value=""
                                                                 size="40"
                                                                 class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
                                                                 aria-required="true" aria-invalid="false"
                                                                 placeholder="Email" /></span></label>
                                                 </div>
                                                 <div class="downdocbox downdocbox-center">
-                                                    <label><input type="submit" value="TẢI XUỐNG"
-                                                            class="wpcf7-form-control wpcf7-submit" /><span
-                                                            class="ajax-loader"></span></label>
+                                                    <input type="submit" value="ĐĂNG KÝ NGAY" class="wpcf7-form-control wpcf7-submit" />
                                                 </div>
                                             </div>
                                             <input type="hidden" class="wpcf7-pum"
@@ -178,7 +127,7 @@
                 <div class="popupms panel-widget-style panel-widget-style-for-29-2-0-2">
                     <div class="so-widget-sow-image so-widget-sow-image-default-6b88c04c1f9b-29">
                         <div class="sow-image-container">
-                            <img src="https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/20230414-TB-so-50-_Chinh-sach-ban-hang-Hanoi-Melody-Residences-2023_page-0002.jpg"
+                            <img src="{{showImageStorage($session_02->main_image)}}"
                                 width="1241" height="1755" sizes="(max-width: 1241px) 100vw, 1241px"
                                 title="20230414 TB so 50 _Chinh sach ban hang Hanoi Melody Residences 2023_page-0002"
                                 alt="Chung cư Hưng Thịnh Linh Đàm" loading="lazy" class="so-widget-image" />

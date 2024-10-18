@@ -47,6 +47,24 @@
                                     id="footer" placeholder="Chân trang...">
                                 <small></small>
                             </div>
+                            <div class="col-md-6 form-group">
+                                <label for="" class="form-label">Logo</label>
+                                <img class="img-fluid img-thumbnail" id="show_logo"
+                                    style="height: 100px; cursor: pointer"
+                                    src="{{ showImageStorage($config->logo) }}" alt=""
+                                    onclick="document.getElementById('logo').click();">
+                                <input type="file" name="logo" id="logo" class="form-control file-input"
+                                    accept="image/*" onchange="previewImage(event, 'show_logo')">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="" class="form-label">Icon</label>
+                                <img class="img-fluid img-thumbnail" id="show_icon"
+                                style="height: 100px; cursor: pointer"
+                                src="{{ showImageStorage($config->icon) }}" alt=""
+                                onclick="document.getElementById('icon').click();">
+                            <input type="file" name="icon" id="icon" class="form-control file-input"
+                                accept="image/*" onchange="previewImage(event, 'show_icon')">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -125,5 +143,3 @@
         });
     </script>
 @endpush
-
-

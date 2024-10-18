@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
-    <link rel="icon" href="" type="image/x-icon">
+    <link rel="icon" href="{{showImageStorage($config->icon)}}" type="image/x-icon">
 
     @include('admin.layout.partials.styles')
 </head>
@@ -18,6 +18,9 @@
 
     .collapse.show {
         display: block;
+    }
+    .cke_notifications_area {
+        display: none;
     }
 </style>
 

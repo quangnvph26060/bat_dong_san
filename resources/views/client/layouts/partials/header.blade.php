@@ -1,11 +1,11 @@
 <div class="wrap-header container-web">
     <div class="logo">
-        <a href="/"><img src="https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/logo.png"
-                alt="Chung cư Hanoi Melody Residences Linh Đàm" /></a>
+        <a href="/"><img src="{{showImageStorage($config->logo)}}"
+                alt="{{$config->main_title}}" /></a>
     </div>
 
     <h1 class="title-website">
-        Chung cư Hanoi Melody Residences Linh Đàm
+        {{$config->main_title}}
     </h1>
     <nav class="primary-menu">
         <ul id="menu" class="menu">

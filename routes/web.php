@@ -46,6 +46,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::controller(SessionConfigController::class)->group(function () {
             Route::get('session', 'session')->name('setting.config.session');
             Route::post('session', 'save')->name('setting.config.session.save');
+            Route::post('session/delete', 'destroy')->name('setting.config.session.delete');
+            Route::get('session/edit', 'edit')->name('setting.config.session.edit');
+            Route::post('session/edit', 'update')->name('setting.config.session.update');
         });
 
         Route::controller(NewsController::class)->group(function () {

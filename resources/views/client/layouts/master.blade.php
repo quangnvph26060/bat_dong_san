@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>{{ $config->main_title }}</title>
+    <link rel="shortcut icon" href="{{ showImageStorage($config->icon) }}">
 
     @include('client.layouts.partials.styles')
 </head>
@@ -44,7 +45,7 @@
             </div>
         </div>
         <div class="hotline-bar">
-            <a href="tel:084.8888.788"><span class="text-hotline">084.8888.788</span></a>
+            <a href="tel:{{ $config->hotline }}"><span class="text-hotline">{{ $config->hotline }}</span></a>
         </div>
     </div>
 
@@ -52,7 +53,7 @@
         <div class="phone-ms">
             <div class="phone-ms-circle-fill"></div>
             <div class="phone-ms-img-circle">
-                <a target="_blank" href="https://zalo.me/0848888788">
+                <a target="_blank" href="https://zalo.me/{{ $config->hotline }}">
                     <img src="https://tapdoanhungthinhcorp.com.vn/wp-content/themes/land070v2-mathsoft/images/zalo.webp"
                         alt="Chat zalo với chúng tôi" />
                 </a>

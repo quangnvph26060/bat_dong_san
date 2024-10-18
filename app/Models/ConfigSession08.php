@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ConfigSession01 extends Model
+class ConfigSession08 extends Model
 {
     use HasFactory;
-    protected $table = 'config_session_01';
+    protected $table = 'config_session_08';
 
     public $timestamps = false;
     protected $fillable = [
-        'extra_title',
-        'text',
-        'main_image',
-        'extra_image',
-        'main_title'
+       'title_s8', 'content_s8', 'images_s8'
+    ];
+
+    protected $casts = [
+        'images_s8' => 'array',
     ];
 }
