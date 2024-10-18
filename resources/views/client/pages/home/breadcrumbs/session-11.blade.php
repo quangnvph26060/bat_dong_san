@@ -180,15 +180,7 @@
                         <div class="sow-image-container">
                             <img src="https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/TANG-2_BLOCK-NO4-scaled.jpg"
                                 width="2560" height="1810"
-                                srcset="
-  https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/TANG-2_BLOCK-NO4-scaled.jpg    2560w,
-  https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/TANG-2_BLOCK-NO4-300x212.jpg    300w,
-  https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/TANG-2_BLOCK-NO4-1024x724.jpg  1024w,
-  https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/TANG-2_BLOCK-NO4-768x543.jpg    768w,
-  https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/TANG-2_BLOCK-NO4-1536x1086.jpg 1536w,
-  https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/TANG-2_BLOCK-NO4-2048x1448.jpg 2048w
-   "
-                                sizes="(max-width: 2560px) 100vw, 2560px" title="TANG 2_BLOCK NO4"
+                                title="TANG 2_BLOCK NO4"
                                 alt="Chung cư Hưng Thịnh Linh Đàm" loading="lazy"
                                 class="so-widget-image" />
                         </div>
@@ -201,35 +193,9 @@
                         <div class="sow-image-container">
                             <img src="https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/TANG-3-12-4-21-23-29_BLOCK-NO4-scaled.jpg"
                                 width="2560" height="1810"
-                                srcset="
-  https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/TANG-3-12-4-21-23-29_BLOCK-NO4-scaled.jpg    2560w,
-  https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/TANG-3-12-4-21-23-29_BLOCK-NO4-300x212.jpg    300w,
-  https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/TANG-3-12-4-21-23-29_BLOCK-NO4-1024x724.jpg  1024w,
-  https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/TANG-3-12-4-21-23-29_BLOCK-NO4-768x543.jpg    768w,
-  https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/TANG-3-12-4-21-23-29_BLOCK-NO4-1536x1086.jpg 1536w,
-  https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/TANG-3-12-4-21-23-29_BLOCK-NO4-2048x1448.jpg 2048w
-  "
-                                sizes="(max-width: 2560px) 100vw, 2560px"
                                 title="TANG 3-12 4-21 23-29_BLOCK NO4"
                                 alt="Chung cư Hưng Thịnh Linh Đàm" loading="lazy"
                                 class="so-widget-image" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="panel-29-11-0-13" class="so-panel widget widget_sow-button panel-last-child"
-                data-index="40">
-                <div class="panel-widget-style panel-widget-style-for-29-11-0-13">
-                    <div class="so-widget-sow-button so-widget-sow-button-flat-1fc26645c20d-29">
-                        <div class="ow-button-base ow-button-align-center">
-                            <a href="#"
-                                class="taitronfile ow-icon-placement-left ow-button-hover pum-trigger"
-                                style="cursor: pointer">
-                                <span>
-                                    TẢI TRỌN BỘ FILE MẶT BẰNG TẦNG VÀ MẶT BẰNG CĂN
-                                    HỘ
-                                </span>
-                            </a>
                         </div>
                     </div>
                 </div>

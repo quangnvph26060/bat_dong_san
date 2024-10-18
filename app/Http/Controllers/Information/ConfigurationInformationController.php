@@ -45,29 +45,17 @@ class ConfigurationInformationController extends Controller
                 deleteImageStorage($config->banner);
             }
 
-            // Lưu ảnh container nếu có
-            // if (isset($request->image_container)) {
-            //     $data['image_container'] = saveImages($request, 'image_container', 'images', 2048, 1463);
-            //     deleteImageStorage($config->image_container);
-            // }
+            // Lưu ảnh logo nếu có
+            if (isset($request->logo)) {
+                $data['logo'] = saveImages($request, 'logo', 'images', 150, 100);
+                deleteImageStorage($config->logo);
+            }
 
-            // if (isset($request->image_thumbnail)) {
-            //     $oldImage = $config->image_thumbnail;
-
-            //     $keyNewImage = array_keys($request->image_thumbnail);
-
-            //     $newArrayImage = saveImages($request, 'image_thumbnail', 'images', 768, 432, true);
-
-            //     foreach ($keyNewImage as $index) {
-            //         if (isset($oldImage[$index])) {
-            //             deleteImageStorage($oldImage[$index]);
-
-            //             $oldImage[$index] = $newArrayImage[$index];
-            //         }
-            //     }
-
-            //     $data['image_thumbnail'] = $oldImage;
-            // }
+            // icon
+            if (isset($request->icon)) {
+                $data['icon'] = saveImages($request, 'icon', 'images', 32, 29);
+                deleteImageStorage($config->icon);
+            }
 
 
             $config->update($data);
@@ -103,7 +91,9 @@ class ConfigurationInformationController extends Controller
                 'hotline'               => 'required|regex:/^[0-9]{3}\.[0-9]{4}\.[0-9]{3}$/',
                 'email'                 => 'required|email',
                 'banner'                => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'footer'                => 'required'
+                'footer'                => 'required',
+                'logo'                  => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'icon'                  => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ],
             __('request.messages'),
             [

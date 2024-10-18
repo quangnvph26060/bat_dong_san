@@ -10,6 +10,14 @@ use App\Models\Footer;
 use App\Models\EmailServer;
 use App\Models\SgoGiaiphap;
 use App\Models\EmailSetting;
+use App\Models\ConfigSession01;
+use App\Models\ConfigSession02;
+use App\Models\ConfigSession03;
+use App\Models\ConfigSession04;
+use App\Models\ConfigSession05;
+use App\Models\ConfigSession06;
+use App\Models\ConfigSession07;
+use App\Models\ConfigSession08;
 use App\Services\ConfigService;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -34,6 +42,29 @@ class AppServiceProvider extends ServiceProvider
             $config = Config::first();
 
             $view->with('config', $config);
+        });
+
+        View::composer(['admin.session.index', 'client.pages.home.home'], function ($view) {
+            $session_02 = ConfigSession01::first();
+            $session_03 = ConfigSession02::first();
+            $session_04 = ConfigSession03::first();
+            $session_05 = ConfigSession04::first();
+            $session_06 = ConfigSession05::first();
+            $session_07 = ConfigSession06::first();
+            $session_08 = ConfigSession07::query()->with('toas.images')->get();
+            $session_09 = ConfigSession08::first();
+
+
+            $view->with([
+                'session_02' => $session_02,
+                'session_03' => $session_03,
+                'session_04' => $session_04,
+                'session_05' => $session_05,
+                'session_06' => $session_06,
+                'session_07' => $session_07,
+                'session_08' => $session_08,
+                'session_09' => $session_09
+            ]);
         });
     }
 

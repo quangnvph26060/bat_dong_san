@@ -14,9 +14,9 @@
                 <div class="popupms panel-widget-style panel-widget-style-for-29-10-0-0">
                     <div class="so-widget-sow-image so-widget-sow-image-default-ab294a5857f7-29">
                         <div class="sow-image-container">
-                            <img src="https://tapdoanhungthinhcorp.com.vn/wp-content/uploads/2021/08/sdsd.jpg"
-                                width="1670" height="136" alt="Chung cư Hưng Thịnh Linh Đàm" loading="lazy"
-                                class="so-widget-image" />
+                            <img src="{{showImageStorage($session_05->small_banner_s4)}}"
+                            width="1670" height="136" alt="Chung cư Hưng Thịnh Linh Đàm"
+                            loading="lazy" class="so-widget-image" />
                         </div>
                     </div>
                 </div>

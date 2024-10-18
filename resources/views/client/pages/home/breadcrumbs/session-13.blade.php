@@ -118,25 +118,8 @@
                                                     aria-atomic="true"></p>
                                                 <ul></ul>
                                             </div>
-                                            <form action="/#wpcf7-f34-o6" method="post"
-                                                class="wpcf7-form init" novalidate="novalidate"
-                                                data-status="init">
-                                                <div style="display: none">
-                                                    <input type="hidden" name="_wpcf7"
-                                                        value="34" />
-                                                    <input type="hidden" name="_wpcf7_version"
-                                                        value="5.4.2" />
-                                                    <input type="hidden" name="_wpcf7_locale"
-                                                        value="vi" />
-                                                    <input type="hidden" name="_wpcf7_unit_tag"
-                                                        value="wpcf7-f34-o6" />
-                                                    <input type="hidden"
-                                                        name="_wpcf7_container_post"
-                                                        value="0" />
-                                                    <input type="hidden"
-                                                        name="_wpcf7_posted_data_hash"
-                                                        value="" />
-                                                </div>
+                                            <form action="" method="post" id="myForm">
+
                                                 <p>
                                                     <label><span
                                                             class="wpcf7-form-control-wrap your-name"><input
@@ -165,9 +148,7 @@
                                                                 aria-invalid="false"
                                                                 placeholder="Số điện thoại*" /></span>
                                                     </label><br />
-                                                    <input type="submit" value="TẢI XUỐNG"
-                                                        class="wpcf7-form-control wpcf7-submit" /><span
-                                                        class="ajax-loader"></span>
+                                                    <input type="submit" value="ĐĂNG KÝ NGAY" class="wpcf7-form-control wpcf7-submit" />
                                                 </p>
                                                 <input type="hidden" class="wpcf7-pum"
                                                     value='{"closepopup":false,"closedelay":0,"openpopup":false,"openpopup_id":0}' />

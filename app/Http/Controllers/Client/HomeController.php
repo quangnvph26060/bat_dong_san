@@ -12,7 +12,8 @@ class HomeController extends Controller
 {
     function home()
     {
-        return view('client.pages.home.home');
+        $news = News::limit(10)->get();
+        return view('client.pages.home.home', compact('news'));
     }
 
     function news()
@@ -25,6 +26,7 @@ class HomeController extends Controller
     {
         $news = News::paginate(10);
         $newDetail = News::where('slug', $slug)->first();
+        if (!$newDetail) abort(404);
         return view('client.pages.news.detail', compact('news', 'newDetail'));
     }
 
@@ -35,7 +37,7 @@ class HomeController extends Controller
             [
                 'email' => 'required|email',
                 'name' => 'nullable|string',
-                'phone' => 'required|regex:/^[0-9]{3}\.[0-9]{4}\.[0-9]{3}$/',
+                'phone' => 'required|regex:/^[0-9]{10}$/',
             ],
             __('request.messages'),
         );

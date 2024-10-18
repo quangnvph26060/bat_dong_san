@@ -24,7 +24,9 @@ class Config extends Model
         'image_thumbnail',
         'title',
         'content',
-        'footer'
+        'footer',
+        'logo',
+        'icon'
     ];
 
     protected $casts = [

@@ -191,4 +191,57 @@
     });
 </script>
 
+
+<script>
+    $(document).ready(function() {
+
+        function resetForm() {
+
+            $('input').removeClass("is-invalid").siblings("small").removeClass(
+                "text-danger").text('');
+
+            $("#myForm").trigger("reset");
+        }
+
+        $(document).on("submit", '#myForm', function(e) {
+            e.preventDefault();
+
+
+            $.ajax({
+                url: "{{ route('subscribe') }}",
+                method: 'POST',
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    name: $('input[name=name]').val(),
+                    email: $('input[name=email]').val(),
+                    phone: $('input[name=phone]').val(),
+                },
+                success: function(response) {
+                    if (response.status) {
+                        $('input').removeClass("is-invalid").siblings("small").removeClass(
+                            "text-danger").text('');
+
+                        showToast('success', response.message);
+                    } else {
+                        $('input').removeClass("is-invalid").siblings("small").removeClass(
+                            "text-danger").text('');
+
+                        $.each(response.errors ?? {}, function(key, value) {
+                            console.log(key, value);
+
+                            $(`input[name=${key}]`).addClass("is-invalid").siblings(
+                                    'small')
+                                .addClass(
+                                    "text-danger").text(value);
+                        })
+                        showToast('error', response.message);
+                    }
+                    resetForm();
+                }
+            })
+        })
+    })
+</script>
+
+
 @stack('scripts')

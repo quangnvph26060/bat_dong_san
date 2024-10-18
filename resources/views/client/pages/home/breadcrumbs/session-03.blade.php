@@ -14,11 +14,11 @@
                 class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-first-child panel-last-child"
                 data-index="8">
                 <h3 class="widget-title">
-                    CLIP GIỚI THIỆU HANOI MELODY RESIDENCES
+                   {{ $session_03->title_s2 }}
                 </h3>
                 <div class="textwidget">
                     <p style="text-align: left">
-                        <iframe src="//www.youtube.com/embed/1vX4N7crwEc" width="560"
+                        <iframe src="{{$session_03->link_video}}" width="560"
                             height="314" allowfullscreen="allowfullscreen"></iframe>
                     </p>
                     <p>&nbsp;</p>
@@ -38,41 +38,7 @@
                 class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-last-child"
                 data-index="10">
                 <div class="textwidget">
-                    <ul>
-                        <li>
-                            <strong>Tên dự án:</strong>
-                            <strong>HANOI MELODY RESIDENCES</strong>
-                        </li>
-                        <li>
-                            <strong>Phát triển dự án:</strong>
-                            <strong>Tập đoàn Hưng Thịnh</strong>
-                        </li>
-                        <li>
-                            <strong>Tổng thầu:</strong> Hưng Thịnh ICONS
-                        </li>
-                        <li>
-                            <strong>Tiếp thị và phân phối độc quyền:</strong>
-                            Property X (một thành viên của Tập đoàn Hưng
-                            Thịnh)
-                        </li>
-                        <li>
-                            <strong>Vị trí:</strong> Ô đất PT1 KĐT mới Tây Nam
-                            hồ Linh Đàm, P.Hoàng Liệt, Q. Hoàng Mai, TP Hà Nội
-                        </li>
-                        <li><strong>Diện tích đất:</strong> 3,28 ha</li>
-                        <li>
-                            <strong>Quy mô dự án:</strong> 4 Tòa nhà cao 29
-                            tầng với 3 tầng hầm để xe rộng rãi.
-                        </li>
-                        <li>
-                            <strong>Diện tích căn hộ:</strong> 2 ngủ
-                            (68-72-79-82-88 m<sup>2</sup>), 3 ngủ
-                            (95-99-102-121-145 m<sup>2</sup>)
-                        </li>
-                        <li>
-                            <strong>Dự kiến bàn giao:</strong> Quý 4/2024
-                        </li>
-                    </ul>
+                   {!! $session_03->text_s2 !!}
                 </div>
             </div>
         </div>
