@@ -1,5 +1,14 @@
 @extends('client.layouts.master')
 
+@section('titlee', $newDetail->title)
+
+@section('title', $newDetail->seo_title ?? $newDetail->title)
+
+@section('keywords', $newDetail->keywords)
+
+@section('description', $newDetail->seo_description)
+
+
 @section('content')
     <div id="contents">
         <section class="showsingle-details">
@@ -31,18 +40,18 @@
                             <div class="formcontact-left">
                                 <span class="wpcf7-form-control-wrap your-name">
                                     <input type="text" name="name" value="" size="40"
-                                    class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                    aria-required="true" aria-invalid="false" placeholder="Họ tên*" />
+                                        class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                                        aria-required="true" aria-invalid="false" placeholder="Họ tên*" />
                                 </span><br>
                                 <span class="wpcf7-form-control-wrap your-tel">
                                     <input type="tel" name="phone" value="" size="40"
-                                    class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel"
-                                    aria-required="true" aria-invalid="false" placeholder="ví dụ: 012.3456.789" />
+                                        class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel"
+                                        aria-required="true" aria-invalid="false" placeholder="ví dụ: 012.3456.789" />
                                 </span><br>
                                 <span class="wpcf7-form-control-wrap your-email">
                                     <input type="email" name="email" value="" size="40"
-                                    class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
-                                    aria-required="true" aria-invalid="false" placeholder="Email*" />
+                                        class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                                        aria-required="true" aria-invalid="false" placeholder="Email*" />
                                 </span>
                             </div>
                             <div class="formcontact-right">

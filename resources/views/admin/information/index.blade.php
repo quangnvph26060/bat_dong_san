@@ -48,9 +48,27 @@
                                 <small></small>
                             </div>
                             <div class="col-md-6 form-group">
+                                <label for="" class="form-label">Seo title</label>
+                                <input type="text" class="form-control" value="{{ $config->seo_title }}" name="seo_title"
+                                    id="seo_title" placeholder="Seo title...">
+                                <small></small>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="" class="form-label">Seo description</label>
+                                <input type="text" class="form-control" value="{{ $config->seo_description }}"
+                                    name="seo_description" id="seo_description" placeholder="Seo description...">
+                                <small></small>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="" class="form-label">Seo keyword</label>
+                                <input id="seo_keyword" class="form-control"
+                                    value="{{ old('seo_keyword', $config->seo_keyword) }}" name="seo_keyword"
+                                    type="text">
+                                <small></small>
+                            </div>
+                            <div class="col-md-6 form-group">
                                 <label for="" class="form-label">Logo</label>
-                                <img class="img-fluid img-thumbnail" id="show_logo"
-                                    style="height: 100px; cursor: pointer"
+                                <img class="img-fluid img-thumbnail" id="show_logo" style="height: 100px; cursor: pointer"
                                     src="{{ showImageStorage($config->logo) }}" alt=""
                                     onclick="document.getElementById('logo').click();">
                                 <input type="file" name="logo" id="logo" class="form-control file-input"
@@ -59,11 +77,10 @@
                             <div class="col-md-6 form-group">
                                 <label for="" class="form-label">Icon</label>
                                 <img class="img-fluid img-thumbnail" id="show_icon"
-                                style="height: 100px; cursor: pointer"
-                                src="{{ showImageStorage($config->icon) }}" alt=""
-                                onclick="document.getElementById('icon').click();">
-                            <input type="file" name="icon" id="icon" class="form-control file-input"
-                                accept="image/*" onchange="previewImage(event, 'show_icon')">
+                                    style="height: 100px; cursor: pointer" src="{{ showImageStorage($config->icon) }}"
+                                    alt="" onclick="document.getElementById('icon').click();">
+                                <input type="file" name="icon" id="icon" class="form-control file-input"
+                                    accept="image/*" onchange="previewImage(event, 'show_icon')">
                             </div>
                         </div>
                     </div>
@@ -80,8 +97,8 @@
                             style="width: 1011px; height: 506px; cursor: pointer"
                             src="{{ showImageStorage($config->banner) }}" alt=""
                             onclick="document.getElementById('banner').click();">
-                        <input type="file" name="banner" id="banner" class="form-control file-input" accept="image/*"
-                            onchange="previewImage(event, 'image-container')">
+                        <input type="file" name="banner" id="banner" class="form-control file-input"
+                            accept="image/*" onchange="previewImage(event, 'image-container')">
                     </div>
                 </div>
             </div>
@@ -92,6 +109,8 @@
 
 
 @push('scripts')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#myForm').on('submit', function(e) {
@@ -140,6 +159,33 @@
                 });
 
             });
+
+            $('#seo_keyword').selectize({
+                delimiter: ',',
+                persist: false,
+                create: function(input) {
+                    return {
+                        value: input,
+                        text: input
+                    };
+                },
+                plugins: ['remove_button'],
+                onKeyDown: function(e) {
+                    if (e.key === ' ') {
+                        e.preventDefault();
+                        var value = this.$control_input.val().trim();
+                        if (value) {
+                            this.addItem(value);
+                            this.$control_input.val('');
+                        }
+                    }
+                }
+            });
         });
     </script>
+@endpush
+
+@push('styles')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.default.min.css"
+        rel="stylesheet">
 @endpush

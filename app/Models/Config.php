@@ -26,7 +26,10 @@ class Config extends Model
         'content',
         'footer',
         'logo',
-        'icon'
+        'icon',
+        'seo_description',
+        'seo_keyword',
+        'seo_title',
     ];
 
     protected $casts = [

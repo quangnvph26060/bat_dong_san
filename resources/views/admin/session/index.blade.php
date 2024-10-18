@@ -372,7 +372,7 @@
 
                         <div class="card-header d-flex justify-content-between">
                             <h5>Cấu hình Session 8</h5>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-primary btnAddTitle" data-bs-toggle="modal"
                                 data-bs-target="#viewProfile">
                                 Thêm mới
                             </button>
@@ -687,37 +687,39 @@
             };
 
 
-            $('#addBuildingForm').on('submit', function(e) {
-                e.preventDefault();
+            $('#addBuildingForm').on('submit', function(event) {
+                event.preventDefault();
 
-                const id = $(this).data('id');
+                const id = $('#addBuildingForm').data('id');
 
-                let acction = id ? '{{ route('admin.setting.config.session.update') }}' : '{{ route('admin.setting.config.session.save') }}';
+                const action = id ? "{{ route('admin.setting.config.session.update', ':id') }}".replace(':id', id) : "{{ route('admin.setting.config.session.save') }}";
 
-                const formData = new FormData(this);
+                let formData = new FormData(this);
 
                 formData.append('type', 'tab-8');
 
+                formData.append('deleted_images', JSON.stringify(deletedImages));
+
                 $.ajax({
-                    url: acction,
+                    url: action, // Đường dẫn xử lý form
                     method: 'POST',
                     data: formData,
-                    contentType: false,
                     processData: false,
+                    contentType: false,
                     success: function(response) {
-                        console.log(response);
-
                         if (response.status) {
-                            showToast('success', response.message);
+                            showToast('success', 'Cập nhật thành công');
                             $('#viewProfile').modal('hide');
-                            $('#appendedTable').prepend(response.html);
                         } else {
                             showToast('error', response.message);
                         }
+                    },
+                    error: function(error) {
+                        console.log(error);
                     }
-                })
+                });
+            });
 
-            })
 
             window.deleteConfirmation = function(id) {
 
@@ -778,58 +780,60 @@
                             // Add the buildings from response
                             response.title.toas.forEach(function(toa, index) {
                                 let buildingHtml = `
-                        <div class="card mb-3 position-relative" id="building_${index}">
-                            <div class="card-body">
-                                <div class="row">
-                                    <!-- Button to remove building -->
-                                    <div class="form-group col-md-12">
-                                        <button type="button" class="btn btn-danger btn-sm position-absolute" style="top: -18px; right: -3px; border-radius: 5px;" onclick="removeBuilding(${index})">X</button>
-                                    </div>
+                                    <div class="card mb-3 position-relative" id="building_${index}">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <!-- Button to remove building -->
+                                                <div class="form-group col-md-12">
+                                                    <button type="button" class="btn btn-danger btn-sm position-absolute" style="top: -18px; right: -3px; border-radius: 5px;" onclick="removeBuilding(${index})">X</button>
+                                                </div>
 
-                                    <!-- Building Name -->
-                                    <div class="col-12 form-group">
-                                        <label for="" class="form-label">Tên tòa</label>
-                                        <input type="text" name="buildings[${index}][name]" class="form-control" value="${toa.building_name}">
-                                    </div>
+                                                <!-- Building Name -->
+                                                <div class="col-12 form-group">
+                                                    <label for="" class="form-label">Tên tòa</label>
+                                                    <input type="text" name="buildings[${index}][name]" class="form-control" value="${toa.building_name}">
+                                                </div>
 
-                                    <!-- Button to add image -->
-                                    <div class="form-group col-md-12">
-                                        <button type="button" class="btn btn-primary btn-sm addImageBtn" data-building-index="${index}">Thêm ảnh</button>
-                                    </div>
+                                                <!-- Button to add image -->
+                                                <div class="form-group col-md-12">
+                                                    <button type="button" class="btn btn-primary btn-sm addImageBtn" data-building-index="${index}">Thêm ảnh</button>
+                                                </div>
 
-                                    <!-- Image container -->
-                                    <div class="row" id="building_${index}_images">`;
+                                                <!-- Image container -->
+                                                <div class="row" id="building_${index}_images">`;
 
-                                toa.images.forEach(function(image, imgIndex) {
-                                    buildingHtml += `
-                                        <div class="form-group col-md-4 position-relative">
-                                            <button type="button" class="btn btn-danger btn-sm position-absolute" style="top: 9px; right: 15px; border-radius: 5px;" onclick="removeImage(${index}, ${imgIndex})">X</button>
-                                            <img class="img-fluid" id="show_building_image_${index}_${imgIndex}" style="height: 150px; width: 100%; cursor: pointer;" src="/storage/${image.image}" alt="building image" onclick="$('#building_image_${index}_${imgIndex}').click();">
-                                            <input type="file" class="form-control file-input" name="buildings[${index}][images][${imgIndex}]" id="building_image_${index}_${imgIndex}" accept="image/*" onchange="previewImage(event, 'show_building_image_${index}_${imgIndex}')">
-                                        </div>`;
-                                });
+                                                toa.images.forEach(function(image, imgIndex) {
+                                                    buildingHtml += `
+                        <div class="form-group col-md-4 position-relative">
+                            <button type="button" class="btn btn-danger btn-sm position-absolute" style="top: 9px; right: 15px; border-radius: 5px;" onclick="removeImage(${index}, ${imgIndex}, ${image.id})">X</button>
+                            <img class="img-fluid" id="show_building_image_${index}_${imgIndex}" style="height: 150px; width: 100%; cursor: pointer;" src="/storage/${image.image}" alt="building image" onclick="$('#building_image_${index}_${imgIndex}').click();">
+                            <input type="file" class="form-control file-input" name="buildings[${index}][images][${imgIndex}]" id="building_image_${index}_${imgIndex}" accept="image/*" onchange="previewImage(event, 'show_building_image_${index}_${imgIndex}')">
+                        </div>`;
+                                                });
+
 
                                 buildingHtml += `
-                                    </div>
-                                </div>
                             </div>
-                        </div>`;
+                        </div>
+                    </div>`;
 
                                 $('#buildingsContainer').append(buildingHtml);
                             });
+
+                            // Update buildingIndex to the number of existing buildings
+                            buildingIndex = response.title.toas.length;
+
                         } else {
-                            showToast('error', response
-                                .message
-                                ); // Show error message if the response is not successful
+                            showToast('error', response.message);
                         }
                     }
                 });
+
             });
 
 
-
-
             let buildingIndex = 0;
+            let deletedImages = [];
 
             // Function to add a new building
             function addBuilding() {
@@ -892,9 +896,15 @@
             }
 
             // Function to remove an image
-            window.removeImage = function(buildingIndex, imageIndex) {
+            window.removeImage = function(buildingIndex, imageIndex, imageId = null) {
+                if (imageId) {
+                    // Thêm ID của ảnh bị xóa vào mảng deletedImages
+                    deletedImages.push(imageId);
+                }
+                // Xóa ảnh trên frontend
                 $(`#show_building_image_${buildingIndex}_${imageIndex}`).closest('.form-group').remove();
-            }
+            };
+
 
             // Initialize with one building and one image when the page is loaded
             addBuilding();
@@ -909,6 +919,25 @@
                 let buildingIndex = $(this).data('building-index');
                 addImage(buildingIndex);
             });
+
+            // Handle the 'Thêm mới' button click event
+            $(document).on('click', '.btnAddTitle', function() {
+                // Clear all input fields in the modal
+                $('#title_s7').val(''); // Clear title
+                $('#displayed_location').val(''); // Clear location
+
+                // Clear the buildings container
+                $('#buildingsContainer').empty();
+
+                // Reset the form's data-id attribute
+                $('#addBuildingForm').removeAttr('data-id');
+
+                // Change the modal title to 'Thêm mới'
+                $('.modal-title').text('Thêm mới');
+
+                $('#addBuildingForm').removeAttr('data-id');
+            });
+
 
         });
     </script>
