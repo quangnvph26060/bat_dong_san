@@ -39,6 +39,8 @@ class ConfigurationInformationController extends Controller
             // Khởi tạo một mảng để lưu trữ dữ liệu
             $data = $cridentials->validated(); // Lấy giá trị đã xác thực
 
+            // dd($data);
+
             // Lưu ảnh banner nếu có
             if (isset($request->banner)) {
                 $data['banner'] = saveImages($request, 'banner', 'images', 2048, 1024);
@@ -57,8 +59,8 @@ class ConfigurationInformationController extends Controller
                 deleteImageStorage($config->icon);
             }
 
-
             $config->update($data);
+
 
             DB::commit();
 
@@ -94,6 +96,9 @@ class ConfigurationInformationController extends Controller
                 'footer'                => 'required',
                 'logo'                  => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'icon'                  => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'seo_description'       => 'nullable|string',
+                'seo_keyword'           => 'nullable|string',
+                'seo_title'            => 'nullable|string',
             ],
             __('request.messages'),
             [
@@ -106,6 +111,4 @@ class ConfigurationInformationController extends Controller
             ]
         );
     }
-
-
 }

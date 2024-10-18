@@ -435,7 +435,7 @@ class SessionConfigController extends Controller
                 // Lưu từng hình ảnh của building
                 if (isset($building['images']) && is_array($building['images'])) {
                     foreach ($building['images'] as $image) {
-                        $imagePath = saveImage($image, 'building_images', 1670, 136);
+                        $imagePath = saveImage($image, 'building_images', 2560, 1810);
 
                         // Lưu thông tin ảnh vào bảng building_images
                         BuildingImage::create([

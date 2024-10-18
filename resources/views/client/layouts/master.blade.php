@@ -4,8 +4,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ $config->main_title }}</title>
+    <title>@yield('titlee', $config->main_title)</title>
     <link rel="shortcut icon" href="{{ showImageStorage($config->icon) }}">
+
+    <meta name="title" content="@yield('title', $config->seo_title ?? $config->main_title)" />
+    <meta name="keywords" content="@yield('keywords', $config->seo_keyword)" />
+    <meta name="description" content="@yield('description', $config->seo_description)" />
 
     @include('client.layouts.partials.styles')
 </head>
@@ -21,7 +25,7 @@
         </div>
 
         <footer id="footer">
-           @include('client.layouts.partials.footer')
+            @include('client.layouts.partials.footer')
         </footer>
     </div>
 
