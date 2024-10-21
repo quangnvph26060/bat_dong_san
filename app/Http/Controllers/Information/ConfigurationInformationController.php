@@ -43,22 +43,22 @@ class ConfigurationInformationController extends Controller
 
             // Lưu ảnh banner nếu có
             if (isset($request->banner)) {
-                $data['banner'] = saveImages($request, 'banner', 'images', 2048, 1024);
+                $data['banner'] = saveImages($request, 'banner', 'public/images', 2048, 1024);
                 deleteImageStorage($config->banner);
             }
 
             // Lưu ảnh logo nếu có
             if (isset($request->logo)) {
-                $data['logo'] = saveImages($request, 'logo', 'images', 150, 100);
+                $data['logo'] = saveImages($request, 'logo', 'public/images', 150, 100);
                 deleteImageStorage($config->logo);
             }
 
             // icon
             if (isset($request->icon)) {
-                $data['icon'] = saveImages($request, 'icon', 'images', 32, 29);
+                $data['icon'] = saveImages($request, 'icon', 'public/images', 32, 29);
                 deleteImageStorage($config->icon);
             }
-
+          
             $config->update($data);
 
 

@@ -95,7 +95,7 @@ class SessionConfigController extends Controller
         DB::beginTransaction();
         try {
             if (isset($request->image_container)) {
-                $data['image_container'] = saveImages($request, 'image_container', 'images', 2048, 1463);
+                $data['image_container'] = saveImages($request, 'image_container', 'public/images', 2048, 1463);
                 deleteImageStorage($config->image_container);
             } else {
                 $data['image_container'] = $config->image_container;
@@ -110,7 +110,7 @@ class SessionConfigController extends Controller
                 }));
 
 
-                $newArrayImage = saveImages($request, 'image_thumbnail', 'images', 768, 432, true);
+                $newArrayImage = saveImages($request, 'image_thumbnail', 'public/images', 768, 432, true);
 
                 foreach ($imageThumbnailKeys as $index) {
                     if (isset($oldImage[$index])) {
@@ -161,7 +161,7 @@ class SessionConfigController extends Controller
         if ($request->hasFile('main_image')) {
             deleteImageStorage($session_01->main_image);
 
-            $main_image = saveImages($request, 'main_image', 'images', 1241, 1755);
+            $main_image = saveImages($request, 'main_image', 'public/images', 1241, 1755);
 
             $data['main_image'] = $main_image;
         }
@@ -219,7 +219,7 @@ class SessionConfigController extends Controller
                 $oldImage = $session_03->image_s3 ?? [];
                 $imageThumbnailKeys = array_keys($request->image_s3);
 
-                $newArrayImage = saveImages($request, 'image_s3', 'images', 300, 168, true);
+                $newArrayImage = saveImages($request, 'image_s3', 'public/images', 300, 168, true);
 
                 foreach ($imageThumbnailKeys as $index) {
                     if (isset($oldImage[$index])) {
@@ -267,17 +267,17 @@ class SessionConfigController extends Controller
 
         if ($request->hasFile('small_banner_s4')) {
             deleteImageStorage($session_04->small_banner_s4);
-            $data['small_banner_s4'] = saveImages($request, 'small_banner_s4', 'images', 1670, 136);
+            $data['small_banner_s4'] = saveImages($request, 'small_banner_s4', 'public/images', 1670, 136);
         }
 
         if ($request->hasFile('banner_s4')) {
             deleteImageStorage($session_04->banner_s4);
-            $data['banner_s4'] = saveImages($request, 'banner_s4', 'images', 2560, 1024);
+            $data['banner_s4'] = saveImages($request, 'banner_s4', 'public/images', 2560, 1024);
         }
 
         if ($request->hasFile('image_4')) {
             deleteImageStorage($session_04->image_4);
-            $data['image_4'] = saveImages($request, 'image_4', 'images', 2560, 1828);
+            $data['image_4'] = saveImages($request, 'image_4', 'public/images', 2560, 1828);
         }
 
         $session_04 = ConfigSession04::first();
@@ -313,12 +313,12 @@ class SessionConfigController extends Controller
 
         if ($request->hasFile('main_image_s5')) {
             deleteImageStorage($session_05->main_image_s5);
-            $data['main_image_s5'] = saveImages($request, 'main_image_s5', 'images', 2560, 1440);
+            $data['main_image_s5'] = saveImages($request, 'main_image_s5', 'public/images', 2560, 1440);
         }
 
         if ($request->hasFile('extra_image_s5')) {
             deleteImageStorage($session_05->extra_image_s5);
-            $data['extra_image_s5'] = saveImages($request, 'extra_image_s5', 'images', 2560, 1280);
+            $data['extra_image_s5'] = saveImages($request, 'extra_image_s5', 'public/images', 2560, 1280);
         }
 
         if (is_null($session_05)) {
@@ -355,7 +355,7 @@ class SessionConfigController extends Controller
             $oldImage = $session_06->images_s6 ?? [];
 
             $imageThumbnailKeys = array_keys($request->images_s6);
-            $newArrayImage = saveImages($request, 'images_s6', 'images', 768, 512, true);
+            $newArrayImage = saveImages($request, 'images_s6', 'public/images', 768, 512, true);
 
             foreach ($imageThumbnailKeys as $index) {
                 if (isset($oldImage[$index])) {
@@ -379,7 +379,7 @@ class SessionConfigController extends Controller
         if ($request->hasFile('slider_s6')) {
             $oldSlider = $session_06->slider_s6 ?? [];
             $sliderKeys = array_keys($request->slider_s6);
-            $newArraySlider = saveImages($request, 'slider_s6', 'images', 768, 512, true);
+            $newArraySlider = saveImages($request, 'slider_s6', 'public/images', 768, 512, true);
 
             foreach ($sliderKeys as $index) {
                 if (isset($oldSlider[$index])) {
@@ -477,7 +477,7 @@ class SessionConfigController extends Controller
 
             $imageThumbnailKeys = array_keys($request->images_s8);
 
-            $newArrayImage = saveImages($request, 'images_s8', 'images', 2560, 1280, true);
+            $newArrayImage = saveImages($request, 'images_s8', 'public/images', 2560, 1280, true);
 
             foreach ($imageThumbnailKeys as $index) {
                 if (isset($oldImage[$index])) {
