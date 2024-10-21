@@ -39,14 +39,6 @@ class ConfigurationInformationController extends Controller
             // Khởi tạo một mảng để lưu trữ dữ liệu
             $data = $cridentials->validated(); // Lấy giá trị đã xác thực
 
-            // dd($data);
-
-            // Lưu ảnh banner nếu có
-            if (isset($request->banner)) {
-                $data['banner'] = saveImages($request, 'banner', 'public/images', 2048, 1024);
-                deleteImageStorage($config->banner);
-            }
-
             // Lưu ảnh logo nếu có
             if (isset($request->logo)) {
                 $data['logo'] = saveImages($request, 'logo', 'public/images', 150, 100);
@@ -58,7 +50,7 @@ class ConfigurationInformationController extends Controller
                 $data['icon'] = saveImages($request, 'icon', 'public/images', 32, 29);
                 deleteImageStorage($config->icon);
             }
-          
+
             $config->update($data);
 
 

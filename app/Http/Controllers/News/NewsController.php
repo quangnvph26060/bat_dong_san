@@ -45,9 +45,9 @@ class NewsController extends Controller
                 $image = $data['image'];
             }
 
-            if ($request->published_at) {
-                $data['status'] = 0;
-            }
+            // if ($request->published_at) {
+            //     $data['status'] = 0;
+            // }
 
             News::create($data);
 
@@ -88,9 +88,9 @@ class NewsController extends Controller
         ];
 
 
-        if ($request->published_at) {
-            $rules['published_at'] = 'date|date_format:Y-m-d\TH:i|after:today';
-        }
+        // if ($request->published_at) {
+        //     $rules['published_at'] = 'date|date_format:Y-m-d\TH:i|after:today';
+        // }
 
         return Validator::make(
             $request->all(),
@@ -114,9 +114,16 @@ class NewsController extends Controller
         return view('admin.news.edit', compact('news'));
     }
 
-    public function update(Request $request, News $news)
+    public function update(Request $request, string $id)
     {
-        $image = null;
+        $news = News::find($id);
+
+        if (is_null($news)) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Không tìm thấy bài viết!'
+            ]);
+        }
         try {
             $data = $this->validator($request);
             if ($data->fails()) {
@@ -132,9 +139,8 @@ class NewsController extends Controller
             $data = $data->validated();
 
             if ($request->hasFile('image')) {
-                $data['image'] = saveImages($request, 'image', 'images', 2048, 1463);
-                $image = $data['image'];
                 deleteImageStorage($news->image);
+                $data['image'] = saveImages($request, 'image', 'images', 2048, 1463);
             }
 
             $news->update($data);
@@ -149,7 +155,7 @@ class NewsController extends Controller
                 'redirect' => route('admin.news.index')
             ]);
         } catch (\Exception $e) {
-            deleteImageStorage($image);
+
             DB::rollBack();
             Log::error($e->getMessage());
             return response()->json([

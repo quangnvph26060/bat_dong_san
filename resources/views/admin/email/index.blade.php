@@ -14,7 +14,6 @@
                     <th>Tên</th>
                     <th>Email</th>
                     <th>Số điện thoại</th>
-                    <th>Trạng thái</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,15 +23,6 @@
                         <td>{{ $email->name ?? 'Không có tên' }}</td>
                         <td>{{ $email->email }}</td>
                         <td>{{ $email->phone }}</td>
-                        <td>
-                            <div class="radio-container">
-                                <label class="toggle">
-                                    <input type="checkbox" class="status-change" data-id="{{ $email->id }}"
-                                        @disabled($email->status) @checked($email->status)>
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </td>
                     </tr>
                 @endforeach
             </tbody>
@@ -40,7 +30,7 @@
     </div>
 @endsection
 
-@push('scripts')
+{{-- @push('scripts')
     <script>
         $(document).on('change', '.status-change', function() {
             const id = $(this).data('id');
@@ -82,7 +72,7 @@
             });
         });
     </script>
-@endpush
+@endpush --}}
 
 @push('styles')
     <style>
