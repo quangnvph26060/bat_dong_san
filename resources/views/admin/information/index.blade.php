@@ -87,21 +87,6 @@
                 </div>
             </div>
 
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Cấu hình banner</h5>
-                    </div>
-                    <div class="card-body">
-                        <img class="img-fluid img-thumbnail" id="image-container"
-                            style="width: 1011px; height: 506px; cursor: pointer"
-                            src="{{ showImageStorage($config->banner) }}" alt=""
-                            onclick="document.getElementById('banner').click();">
-                        <input type="file" name="banner" id="banner" class="form-control file-input"
-                            accept="image/*" onchange="previewImage(event, 'image-container')">
-                    </div>
-                </div>
-            </div>
         </div>
         <button type="submit" class="btn btn-primary">Lưu</button>
     </form>

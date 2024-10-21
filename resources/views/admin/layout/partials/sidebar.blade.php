@@ -20,7 +20,8 @@
         <!-- Logo Header -->
         <div class="logo-header image-container" data-background-color="dark">
             <a href="{{ route('admin.dashboard') }}" class="logo ">
-                <img src="{{showImageStorage($config->logo)}}" alt="navbar brand" class="navbar-brand image" height="50" />
+                <img src="{{ showImageStorage($config->logo) }}" alt="navbar brand" class="navbar-brand image"
+                    height="50" />
             </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
@@ -49,6 +50,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a  href="{{ route('admin.setting.config.session') }}">
+                        <i class="fas fa-users"></i>
+                        <p>Cấu hình trang chủ</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#cauhinh">
                         <i class="fas fa-users"></i>
                         <p>Cấu hình</p>
@@ -64,11 +72,6 @@
                             <li>
                                 <a href="{{ route('admin.setting.config.email') }}">
                                     <span class="sub-item">Email</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.setting.config.session') }}">
-                                    <span class="sub-item">Session</span>
                                 </a>
                             </li>
                         </ul>

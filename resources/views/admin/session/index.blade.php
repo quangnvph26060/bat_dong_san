@@ -4,6 +4,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="btn-group">
+                <a href="#tab-banner" class="btn btn-primary border" aria-current="page">Banner</a>
                 <a href="#tab-1" class="btn btn-primary border active" aria-current="page">01</a>
                 <a href="#tab-2" class="btn btn-primary border">02</a>
                 <a href="#tab-3" class="btn btn-primary border">03</a>
@@ -18,6 +19,24 @@
 
         <div class="col-lg-12">
             <form action="" method="post" id="myForm" enctype="multipart/form-data">
+
+                <div id="tab-banner">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Cấu hình banner</h5>
+                        </div>
+                        <div class="card-body">
+                            <img class="img-fluid img-thumbnail" id="image-container"
+                                style="width: 100%; height: 506px; cursor: pointer"
+                                src="{{ showImageStorage($config->banner) }}" alt=""
+                                onclick="document.getElementById('banner').click();">
+                            <input type="file" name="banner" id="banner" class="form-control file-input"
+                                accept="image/*" onchange="previewImage(event, 'image-container')">
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" onclick="submitTab('tab-banner')">Lưu</button>
+                </div>
 
                 <div id="tab-1">
                     <div class="card">
@@ -692,7 +711,8 @@
 
                 const id = $('#addBuildingForm').data('id');
 
-                const action = id ? "{{ route('admin.setting.config.session.update', ':id') }}".replace(':id', id) : "{{ route('admin.setting.config.session.save') }}";
+                const action = id ? "{{ route('admin.setting.config.session.update', ':id') }}".replace(
+                    ':id', id) : "{{ route('admin.setting.config.session.save') }}";
 
                 let formData = new FormData(this);
 
@@ -802,14 +822,14 @@
                                                 <!-- Image container -->
                                                 <div class="row" id="building_${index}_images">`;
 
-                                                toa.images.forEach(function(image, imgIndex) {
-                                                    buildingHtml += `
+                                toa.images.forEach(function(image, imgIndex) {
+                                    buildingHtml += `
                         <div class="form-group col-md-4 position-relative">
                             <button type="button" class="btn btn-danger btn-sm position-absolute" style="top: 9px; right: 15px; border-radius: 5px;" onclick="removeImage(${index}, ${imgIndex}, ${image.id})">X</button>
                             <img class="img-fluid" id="show_building_image_${index}_${imgIndex}" style="height: 150px; width: 100%; cursor: pointer;" src="/storage/${image.image}" alt="building image" onclick="$('#building_image_${index}_${imgIndex}').click();">
                             <input type="file" class="form-control file-input" name="buildings[${index}][images][${imgIndex}]" id="building_image_${index}_${imgIndex}" accept="image/*" onchange="previewImage(event, 'show_building_image_${index}_${imgIndex}')">
                         </div>`;
-                                                });
+                                });
 
 
                                 buildingHtml += `

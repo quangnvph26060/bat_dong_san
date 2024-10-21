@@ -38,21 +38,6 @@
 
                 </div>
                 <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Đặt lịch</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="">Ngày đăng</label>
-                                <input type="datetime-local" name="published_at"
-                                    value="{{ old('published_at', $news->published_at) }}" class="form-control"
-                                    id="">
-                                <small id="error-published_at"></small>
-                            </div>
-                        </div>
-
-                    </div>
 
                     <div class="card">
                         <div class="card-header">
@@ -70,7 +55,7 @@
                         </div>
                         <div class="card-body">
                             <img src="{{ showImageStorage($news->image) }}" alt="" id="image_main"
-                                class="img-fluid mb-3" style="max-height: 200px; object-fit: cover;">
+                                class="img-fluid mb-3 w-100" style="max-height: 200px; object-fit: cover;">
                             <a href="#" id="select_main_image" style="text-decoration: underline">Chọn ảnh tiêu
                                 biểu</a>
                             <input type="file" name="image" id="image" class="form-control" style="display: none">
