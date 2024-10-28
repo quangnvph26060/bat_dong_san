@@ -164,7 +164,7 @@
                 var formData = $(this).serializeArray();
 
                 $.ajax({
-                    url: "{{ route('admin.login') }}",
+                    url:"{{ config('app.url') }}/admin/login",
                     method: 'POST',
                     data: formData,
                     success: function(response) {
