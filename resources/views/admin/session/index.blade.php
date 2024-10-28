@@ -676,7 +676,7 @@
 
                 // Gửi dữ liệu qua Ajax
                 $.ajax({
-                    url: "{{ route('admin.setting.config.session.save') }}",
+                    url:"{{ config('app.url') }}/admin/session",
                     method: 'POST',
                     data: formData,
                     contentType: false,
