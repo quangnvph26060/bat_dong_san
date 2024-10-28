@@ -51,6 +51,8 @@ class SessionConfigController extends Controller
                 return $this->sessionEight($request);
             case 'tab-9':
                 return $this->sessionNine($request);
+            case 'tab-banner':
+                return $this->sessionBanner($request);
             default:
                 return response()->json([
                     'status' => false,
@@ -524,7 +526,8 @@ class SessionConfigController extends Controller
         ]);
     }
 
-    public function edit() {
+    public function edit()
+    {
         $id = request()->input('id');
         $title = ConfigSession07::with('toas.images')->find($id);
 
@@ -541,9 +544,26 @@ class SessionConfigController extends Controller
         ]);
     }
 
-    public function update(Request $request) {
+    public function update(Request $request)
+    {
         dd($request->all());
     }
 
+    function sessionBanner(Request $request)
+    {
+        $config = Config::first();
+        if (isset($request->banner)) {
+            $banner = saveImages($request, 'banner', 'public/images', 2048, 1024);
+            deleteImageStorage($config->banner);
+        }
 
+        $config->update([
+            'banner' => $banner ?? $config->banner,
+        ]);
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Cập nhật thành công!'
+        ]);
+    }
 }
