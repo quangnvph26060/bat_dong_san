@@ -2,14 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\Ssl;
-use App\Models\Cloud;
-use App\Models\Client;
 use App\Models\Config;
-use App\Models\Footer;
-use App\Models\EmailServer;
-use App\Models\SgoGiaiphap;
-use App\Models\EmailSetting;
 use App\Models\ConfigSession01;
 use App\Models\ConfigSession02;
 use App\Models\ConfigSession03;
@@ -18,7 +11,7 @@ use App\Models\ConfigSession05;
 use App\Models\ConfigSession06;
 use App\Models\ConfigSession07;
 use App\Models\ConfigSession08;
-use App\Services\ConfigService;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -37,6 +30,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+Paginator::useBootstrapFive();
+
 
         View::composer('*', function ($view) {
             $config = Config::first();

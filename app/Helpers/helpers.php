@@ -29,7 +29,7 @@ function saveImages($request, string $inputName, string $directory = 'images', $
 
         foreach ($images as $key => $image) {
             // Đọc hình ảnh từ đường dẫn thực
-            $img = $manager->read($image->getRealPath());
+            $img = $manager->read($image->getPathName());
 
             // Thay đổi kích thước
             $img->resize($width, $height);
@@ -57,7 +57,7 @@ function saveImage($image, string $directory = 'images', $width = 150, $height =
     $manager = new ImageManager(new Driver());
 
     // Đọc hình ảnh từ đường dẫn thực
-    $img = $manager->read($image->getRealPath());
+    $img = $manager->read($image->getPathName());
 
     // Thay đổi kích thước
     $img->resize($width, $height);

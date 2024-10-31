@@ -14,7 +14,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $news = News::paginate(10);
+        $news = News::latest()->paginate(10);
         return view('admin.news.index', compact('news'));
     }
 
@@ -44,11 +44,6 @@ class NewsController extends Controller
                 $data['image'] = saveImages($request, 'image', 'images', 2048, 1463);
                 $image = $data['image'];
             }
-
-            // if ($request->published_at) {
-            //     $data['status'] = 0;
-            // }
-
             News::create($data);
 
             DB::commit();
@@ -85,6 +80,7 @@ class NewsController extends Controller
             'keywords' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'seo_description' => 'required|string',
+            'status' => 'required|boolean',
         ];
 
 

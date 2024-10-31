@@ -63,20 +63,14 @@
                                                         <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d/m/Y \a\t h:i a') }}
                                                         </td>
                                                         <td>
-                                                            <div class="radio-container">
-                                                                <label class="toggle">
-                                                                    <input type="checkbox" class="status-change"
-                                                                        data-id="{{ $item->id }}" @checked($item->status)>
-                                                                    <span class="slider"></span>
-                                                                </label>
-                                                            </div>
+                                                           {!! $item->status ? '<span class="badge badge-success">Phát hành</span>' : '<span class="badge badge-danger">Ngưng phát hành</span>' !!}
                                                         </td>
                                                 @endforeach
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
-
+{{$news->links()}}
                             </div>
                         </div>
                     </div>

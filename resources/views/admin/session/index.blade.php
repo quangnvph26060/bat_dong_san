@@ -403,7 +403,7 @@
                                         <th>STT</th>
                                         <th>Tiêu đề</th>
                                         <th>Tòa</th>
-                                        <th>Thứ tự hiện thị</th>
+                                        {{-- <th>Thứ tự hiện thị</th> --}}
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
@@ -413,7 +413,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $value->title_s7 }}</td>
                                             <td>{{ implode(' | ', $value->toas->pluck('building_name')->toArray()) }}</td>
-                                            <td>{{ is_null($value->displayed_location) ? 'Không xác định' : $value->displayed_location }}
+                                            {{-- <td>{{ is_null($value->displayed_location) ? 'Không xác định' : $value->displayed_location }} --}}
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-danger btn-delete"
@@ -421,9 +421,7 @@
                                                     onclick="deleteConfirmation({{ $value->id }})"><i
                                                         class="fa-solid fa-trash"></i></button>
 
-                                                <button type="button" class="btn btn-warning btn-edit"
-                                                    data-id="{{ $value->id }}"><i
-                                                        class="fa-solid fa-pen-to-square"></i></button>
+
 
                                             </td>
                                         </tr>
@@ -448,7 +446,7 @@
                                 <div class="col-12 form-group">
                                     <label for="" class="form-label">Tiêu đề</label>
                                     <input type="text" name="title_s8" id=""
-                                        value="{{ $session_09->title_s8 }}}" class="form-control">
+                                        value="{{ $session_09->title_s8 }}" class="form-control">
                                 </div>
                                 <div class="col-12 form-group">
                                     <label for="" class="form-label">Nội dung</label>

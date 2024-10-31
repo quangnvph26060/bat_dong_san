@@ -15,8 +15,8 @@
                                 <small id="error-title"></small>
                             </div>
                             <div class="form-group">
-                                <input type="text" placeholder="Tiêu đề seo..." name="seo_title" value="{{ old('seo_title', $news->seo_title) }}" class="form-control"
-                                    id="seo_title">
+                                <input type="text" placeholder="Tiêu đề seo..." name="seo_title"
+                                    value="{{ old('seo_title', $news->seo_title) }}" class="form-control" id="seo_title">
                             </div>
                             <div class="form-group">
                                 <label for="" class="form-label">Description</label>
@@ -46,6 +46,19 @@
                         <div class="card-body">
                             <input id="keywords" class="form-control" value="{{ old('keywords', $news->keywords) }}"
                                 name="keywords" type="text">
+                            <small id="error-keywords"></small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Phát hành</h4>
+                        </div>
+                        <div class="card-body">
+                            <select name="status" id="status" class="form-select" >
+                                <option value="1" @selected(old('status', $news->status))>Phát hành</option>
+                                <option value="0" @selected(old('status', $news->status))>Ngưng phát hành</option>
+                            </select>
                             <small id="error-keywords"></small>
                         </div>
                     </div>
