@@ -492,12 +492,12 @@ class SessionConfigController extends Controller
 
             $data['images_s8'] = $oldImage;
 
+        }
 
-            if (is_null($session_09)) {
-                ConfigSession08::create($data);
-            } else {
-                $session_09->update($data);
-            }
+        if (is_null($session_09)) {
+            ConfigSession08::create($data);
+        } else {
+            $session_09->update($data);
         }
 
         return response()->json([

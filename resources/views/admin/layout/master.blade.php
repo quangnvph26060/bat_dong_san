@@ -34,10 +34,10 @@
 
             <div class="container">
                 <div class="page-inner">
-                    <div class="page-header">
+                    {{-- <div class="page-header">
                         <ul class="breadcrumbs mb-3">
                             <li class="nav-home">
-                                <a href="http://123.31.31.39:9000/admin">
+                                <a href="{{ route('admin.dashboard') }}">
                                     <i class="icon-home"></i>
                                 </a>
                             </li>
@@ -48,7 +48,7 @@
                                 <a href="http://123.31.31.39:9000/admin/config">Cấu hình</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                     @yield('content')
                 </div>
             </div>

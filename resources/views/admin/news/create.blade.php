@@ -20,7 +20,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="" class="form-label">Description</label>
-                               <textarea name="seo_description" cols="30" rows="5" class="form-control" placeholder="Seo description"> </textarea>
+                                <textarea name="seo_description" cols="30" rows="5" class="form-control" placeholder="Seo description"> </textarea>
                                 <small id="error-seo_description"></small>
                             </div>
                             <div class="form-group">
@@ -30,29 +30,29 @@
                             </div>
                         </div>
                     </div>
-                        <button type="submit" class="btn btn-success">Thêm mới</button>
-                        <a href="{{ route('admin.news.index') }}" class="btn btn-outline-dark">Quay lại</a>
+                    <button type="submit" class="btn btn-success">Thêm mới</button>
+                    <a href="{{ route('admin.news.index') }}" class="btn btn-outline-dark">Quay lại</a>
                 </div>
                 <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Đặt lịch</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="">Ngày đăng</label>
-                                <input type="datetime-local" name="published_at" class="form-control" id="">
-                                <small id="error-published_at"></small>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Từ khóa</h4>
                         </div>
                         <div class="card-body">
-                            <input id="keywords" class="form-control " name="keywords" type="text">
+                            <input id="keywords" class="form-control " name="keywords" type="text" value="{{ old('keywords') }}">
+                            <small id="error-keywords"></small>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Phát hành</h4>
+                        </div>
+                        <div class="card-body">
+                            <select name="status" id="status" class="form-select">
+                                <option value="1" @selected(old('status', 1))>Phát hành</option>
+                                <option value="0" @selected(old('status', 0))>Ngưng phát hành</option>
+                            </select>
                             <small id="error-keywords"></small>
                         </div>
                     </div>
@@ -65,7 +65,8 @@
                                 style="max-height: 200px; object-fit: cover;">
                             <a href="#" id="select_main_image" style="text-decoration: underline">Chọn ảnh tiêu
                                 biểu</a>
-                            <input type="file" name="image" id="image" class="form-control" style="display: none"> <br>
+                            <input type="file" name="image" id="image" class="form-control" style="display: none">
+                            <br>
                             <small id="error-image"></small>
                         </div>
                     </div>

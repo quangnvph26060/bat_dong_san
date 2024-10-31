@@ -18,7 +18,8 @@ class News extends Model
         'image',
         'published_at',
         'keywords',
-        'status'
+        'status',
+        'seo_description'
     ];
 
     public static function boot()
