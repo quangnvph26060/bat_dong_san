@@ -4,7 +4,7 @@
     <div id="contents">
         <section class="shownews">
             <p id="breadcrumbs">
-                <span><span><a href="https://tapdoanhungthinhcorp.com.vn/">Trang chủ</a>
+                <span><span><a href="{{ route('home') }}">Trang chủ</a>
                         »
                         <span class="breadcrumb_last" aria-current="page">Tin tức dự án</span></span></span>
             </p>

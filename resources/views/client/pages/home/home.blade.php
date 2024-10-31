@@ -70,7 +70,7 @@
                 @endforeach
             </div>
             <div class="shownewshome-more">
-                <a href="https://tapdoanhungthinhcorp.com.vn/tin-tuc/">Xem thêm ►</a>
+                <a href="{{ route('news') }}">Xem thêm ►</a>
             </div>
         </div>
     </div>

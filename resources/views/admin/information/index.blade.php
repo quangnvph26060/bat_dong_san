@@ -103,7 +103,7 @@
                 var formData = new FormData(this);
 
                 $.ajax({
-                    url: "{{ route('admin.setting.config.store') }}",
+                    url: "{{ config('app.url') }}"+"/admin/config" ,
                     method: 'POST',
                     data: formData,
                     contentType: false,

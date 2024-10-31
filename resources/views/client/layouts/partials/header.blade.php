@@ -11,7 +11,7 @@
         <ul id="menu" class="menu">
             <li id="menu-item-82"
                 class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-82">
-                <a href="https://tapdoanhungthinhcorp.com.vn/" aria-current="page">Trang chủ</a>
+                <a href="{{route('home')}}" aria-current="page">Trang chủ</a>
             </li>
             <li id="menu-item-83"
                 class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-83">
