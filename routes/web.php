@@ -57,6 +57,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::post('news/create', 'store')->name('news.store');
             Route::get('news/{id}/edit', 'edit')->name('news.edit');
             Route::post('news/{id}/edit', 'update')->name('news.update');
+            Route::delete('news/{news}/destroy', 'destroy')->name('news.destroy');
         });
 
         Route::controller(ConfigEmailController::class)->group(function () {

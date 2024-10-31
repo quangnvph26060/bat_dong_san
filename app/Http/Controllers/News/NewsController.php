@@ -160,4 +160,18 @@ class NewsController extends Controller
             ]);
         }
     }
+
+    public function destroy(News $news)
+    {
+        if (is_null($news)) {
+           session()->flash('error', 'Không tìm thấy bài viết!');
+
+            return redirect()->back();
+        }
+        deleteImageStorage($news->image);
+        $news->delete();
+        session()->flash('success', 'Xóa bài viết thành công.');
+
+        return redirect()->back();
+    }
 }
