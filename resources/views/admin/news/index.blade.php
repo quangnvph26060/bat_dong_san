@@ -43,6 +43,7 @@
                                                     <th>Tags</th>
                                                     <th>Ngày tạo</th>
                                                     <th>Trạng thái</th>
+                                                    <th>Hành động</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -65,6 +66,14 @@
                                                         <td>
                                                            {!! $item->status ? '<span class="badge badge-success">Phát hành</span>' : '<span class="badge badge-danger">Ngưng phát hành</span>' !!}
                                                         </td>
+                                                        <td>
+                                                            <form action="{{ route('admin.news.destroy', $item) }}" method="post">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit" onclick="return confirm('Xóa bài viết này?')" class="btn btn-danger btn-sm">Xóa</button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>
