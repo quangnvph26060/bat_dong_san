@@ -12,8 +12,8 @@
 @section('content')
     <div id="contents">
         <section class="showsingle-details">
-            <p id="breadcrumbs"><span><span><a href="https://tapdoanhungthinhcorp.com.vn/">Trang chủ</a> » <span><a
-                                href="https://tapdoanhungthinhcorp.com.vn/tin-tuc/">Tin tức dự án</a> » <span
+            <p id="breadcrumbs"><span><span><a href="{{ route('home') }}">Trang chủ</a> » <span><a
+                                href="{{ route('news') }}">Tin tức dự án</a> » <span
                                 class="breadcrumb_last" aria-current="page">Pháp lý vững chắc – Yếu tố hút khách của Hanoi
                                 Melody Residences</span></span></span></span></p>
             <h1 class="showsingle-title">{{ $newDetail->title }}</h1>
