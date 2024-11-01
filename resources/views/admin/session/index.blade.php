@@ -46,8 +46,9 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for=" " class="form-label">Tiêu đề</label>
-                                <input type="text" name="main_title" id="main_title" value="{{ $config->main_title }}"
-                                    class="form-control" placeholder="Nhập tiêu đề">
+                                {{-- <input type="text" name="main_title" id="main_title" value="{{ $config->main_title }}"
+                                    class="form-control" placeholder="Nhập tiêu đề"> --}}
+                                <textarea name="main_title" id="main_title" cols="30" rows="10" class="summernote">{!! $config->main_title !!}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="" class="form-label">Nội dung</label>
@@ -102,14 +103,16 @@
                         <div class="card-body">
                             <div class="row">
 
-                                <div class="form-group col-6">
+                                <div class="form-group col-12">
                                     <label for=" " class="form-label">Tiêu đề</label>
-                                    <input type="text" name="main_title" id="main_title_session2"
+                                    {{-- <input type="text" name="main_title" id="main_title_session2"
                                         value="{{ $session_02->main_title }}" class="form-control"
-                                        placeholder="Nhập tiêu đề">
+                                        placeholder="Nhập tiêu đề"> --}}
+
+                                    <textarea name="main_title" id="main_title" cols="30" rows="10" class="summernote">{!! $session_02->main_title !!}</textarea>
                                 </div>
 
-                                <div class="form-group col-6">
+                                <div class="form-group col-12">
                                     <label for=" " class="form-label">Tiêu đề phụ</label>
                                     <input type="text" name="extra_title" id="extra_title_session2"
                                         value="{{ $session_02->extra_title }}" class="form-control"
@@ -118,14 +121,14 @@
 
                                 <div class="form-group col-12">
                                     <label for="" class="form-label">Nội dung</label>
-                                    <textarea class="ckeditor" name="text" data-editor-name="session_01" id="session_01">{!! $session_02->text !!}</textarea>
+                                    <textarea class="summernote" name="text" data-editor-name="session_01" id="session_01">{!! $session_02->text !!}</textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header">   
                             <h5>Main Image</h5>
                         </div>
                         <div class="card-body">
@@ -133,10 +136,18 @@
                                 style="width:100%; cursor: pointer;"
                                 src="{{ showImageStorage($session_02->main_image) }}" alt=""
                                 onclick="document.getElementById('image_container_session2').click();">
+
                             <input type="file" class="form-control file-input" name="main_image"
                                 id="image_container_session2" accept="image/*"
                                 onchange="previewImage(event, 'main_image_session2')">
+
+                            <!-- Nút Xóa ảnh -->
+                            <button type="button" class="btn btn-danger mt-2"
+                                onclick="removeImages('main_image_session2', 'image_container_session2')">
+                                Xóa ảnh
+                            </button>
                         </div>
+
                     </div>
                     <button type="button" class="btn btn-primary" onclick="submitTab('tab-2')">Lưu</button>
                 </div>
@@ -148,19 +159,20 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="form-group col-6">
+                                <div class="form-group col-12">
                                     <label for="" class="form-label">Tiêu đề</label>
-                                    <input type="text" name="title_s2" class="form-control"
-                                        value="{{ $session_03->title_s2 }}">
+                                    {{-- <input type="text" name="title_s2" class="form-control"
+                                        value="{{ $session_03->title_s2 }}"> --}}
+                                    <textarea name="title_s2" id="title_s2" cols="30" rows="10" class="summernote">{!! $session_03->title_s2 !!}</textarea>
                                 </div>
-                                <div class="form-group col-6">
+                                <div class="form-group col-12">
                                     <label for="" class="form-label">Link video</label>
                                     <input type="text" name="link_video" class="form-control"
                                         value="{{ $session_03->link_video }}">
                                 </div>
                                 <div class="form-group col-12">
                                     <label for="" class="form-label">Nội dung</label>
-                                    <textarea class="ckeditor" name="text_s2" data-editor-name="session_02" id="session_02"> {!! $session_03->text_s2 !!}</textarea>
+                                    <textarea class="summernote" name="text_s2" data-editor-name="session_02" id="session_02"> {!! $session_03->text_s2 !!}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -178,13 +190,13 @@
                             <div class="row">
                                 <div class="form-group col-lg-12">
                                     <label for="" class="form-label">Tiêu đề</label>
-                                    <input type="text" name="title_s3" class="form-control"
-                                        value="{{ $session_04->title_s3 }}}">
+
+                                    <textarea name="title_s3" id="title_s3" cols="30" rows="10" class="summernote">{!! $session_04->title_s3 !!}</textarea>
                                 </div>
                                 <div class="form-group col-lg-12">
                                     <label for="" class="form-label">Nội dung</label>
                                     <input type="text" name="text_s3" class="form-control"
-                                        value="{{ $session_04->text_s3 }}}">
+                                        value="{{ $session_04->text_s3 }}">
                                 </div>
                                 <div class="form-group col-12">
                                     <label for="" class="form-label">Ảnh</label>
@@ -232,7 +244,7 @@
 
                                     <div class="form-group col-lg-6">
                                         <label for="" class="form-label">Nội dung</label>
-                                        <textarea class="ckeditor" name="text_s4" data-editor-name="session_05" id="session_05">{!! $session_05->text_s4 !!}</textarea>
+                                        <textarea class="summernote" name="text_s4" data-editor-name="session_05" id="session_05">{!! $session_05->text_s4 !!}</textarea>
                                     </div>
 
                                     <div class="form-group col-lg-6">
@@ -273,9 +285,8 @@
                             <div class="row">
                                 <div class="form-group col-12">
                                     <label for="" class="form-label">Tiêu đề </label>
-                                    <input type="text" name="main_title_s5" id=""
-                                        value="{{ $session_06->main_title_s5 }}" placeholder="Nhập tiêu đề"
-                                        class="form-control">
+
+                                    <textarea name="main_title_s5" id="main_title_s5" cols="30" rows="10" class="summernote">{!! $session_06->main_title_s5 !!}</textarea>
                                 </div>
                                 <div class="form-group col-12">
                                     <label for="" class="form-label">Nội dung</label>
@@ -295,7 +306,7 @@
                                 </div>
                                 <div class="form-group col-6">
                                     <label for="" class="form-label">Text</label>
-                                    <textarea class="ckeditor" name="text_s5" data-editor-name="session_07" id="session_07">
+                                    <textarea class="summernote" name="text_s5" data-editor-name="session_07" id="session_07">
                                         {!! $session_06->text_s5 !!}
                                     </textarea>
                                 </div>
@@ -326,16 +337,17 @@
                             <div class="row">
                                 <div class="form-group col-12">
                                     <label for=" " class="form-label">Tiêu đề</label>
-                                    <input type="text" name="title_s6" id="title_s6"
-                                        value="{{ $session_07->title_s6 }}" class="form-control"
-                                        placeholder="Nhập tiêu đề">
+
+
+                                    <textarea name="title_s6" id="title_s6" cols="30" rows="10" class="summernote">{!! $session_07->title_s6 !!}</textarea>
+
                                 </div>
 
 
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="" class="form-label">Nội dung</label>
-                                        <textarea class="ckeditor" name="text_s6" data-editor-name="session_08" id="session_08">
+                                        <textarea class="summernote" name="text_s6" data-editor-name="session_08" id="session_08">
                                             {!! $session_07->text_s6 !!}
                                         </textarea>
                                     </div>
@@ -445,8 +457,10 @@
                             <div class="row">
                                 <div class="col-12 form-group">
                                     <label for="" class="form-label">Tiêu đề</label>
-                                    <input type="text" name="title_s8" id=""
-                                        value="{{ $session_09->title_s8 }}" class="form-control">
+
+
+                                    <textarea name="title_s8" id="title_s8" cols="30" rows="10" class="summernote">{!! $session_09->title_s8 !!}</textarea>
+
                                 </div>
                                 <div class="col-12 form-group">
                                     <label for="" class="form-label">Nội dung</label>
@@ -532,82 +546,54 @@
 @endsection
 
 @push('scripts')
-    <script src="https://cdn.ckeditor.com/4.19.1/standard-all/ckeditor.js"></script>
+    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/summernote-bs4.min.js') }}"></script>
     <script>
+        function initSummernote(selector, height) {
+            $(selector).summernote({
+                height: height, // Thiết lập chiều cao
+                toolbar: [
+                    ['fontname', ['fontname']],
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']],
+                    ['view', ['codeview']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['help', ['help']],
+                    ['view', ['fullscreen', 'codeview', 'help']],
+                    ['history', ['undo', 'redo']],
+                ]
+            });
+        }
+
+        initSummernote('#main_title', 100);
+
+        $('.summernote').summernote({
+            height: 200, // Thiết lập chiều cao
+            toolbar: [
+                ['fontname', ['fontname']],
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['view', ['codeview']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['help', ['help']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+                ['history', ['undo', 'redo']],
+            ]
+        });
+
         $(document).ready(function() {
             // Khởi tạo CKEditor cho tất cả các textarea
-            $('textarea.ckeditor').each(function() {
-                CKEDITOR.replace(this.id, {
-                    toolbar: [{
-                            name: 'document',
-                            items: ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-',
-                                'Templates'
-                            ]
-                        },
-                        {
-                            name: 'clipboard',
-                            items: ['Undo', 'Redo']
-                        },
-                        {
-                            name: 'editing',
-                            items: ['Find', 'Replace', '-', 'SelectAll', '-', 'SpellChecker',
-                                'Scayt'
-                            ]
-                        },
-                        {
-                            name: 'forms',
-                            items: ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea',
-                                'Select', 'Button', 'ImageButton', 'HiddenField'
-                            ]
-                        },
-                        '/',
-                        {
-                            name: 'basicstyles',
-                            items: ['Bold', 'Italic', 'Underline', '-', 'Subscript',
-                                'Superscript', '-', 'Strike', 'RemoveFormat'
-                            ]
-                        },
-                        {
-                            name: 'paragraph',
-                            items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent',
-                                '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft',
-                                'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-',
-                                'BidiLtr', 'BidiRtl', 'Language'
-                            ]
-                        },
-                        {
-                            name: 'links',
-                            items: ['Link', 'Unlink', 'Anchor']
-                        },
-                        {
-                            name: 'insert',
-                            items: ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley',
-                                'SpecialChar', 'PageBreak', 'Iframe'
-                            ]
-                        },
-                        '/',
-                        {
-                            name: 'styles',
-                            items: ['Styles', 'Format', 'Font', 'FontSize']
-                        },
-                        {
-                            name: 'colors',
-                            items: ['TextColor', 'BGColor']
-                        },
-                        {
-                            name: 'tools',
-                            items: ['Maximize', 'ShowBlocks', '-']
-                        },
-                        {
-                            name: 'about',
-                            items: ['About']
-                        }
-                    ],
-                    extraPlugins: 'font,colorbutton,justify',
-                    fontSize_sizes: '11px;12px;13px;14px;15px;16px;18px;20px;22px;24px;26px;28px;30px;32px;34px;36px',
-                });
-            });
-
             // Bắt sự kiện khi nhấn vào tab
             $('.btn-group a').on('click', function(e) {
                 e.preventDefault(); // Ngăn chặn hành vi mặc định của liên kết
@@ -674,7 +660,7 @@
 
                 // Gửi dữ liệu qua Ajax
                 $.ajax({
-                    url:"{{ config('app.url') }}/admin/session",
+                    url: "{{ config('app.url') }}/admin/session",
                     method: 'POST',
                     data: formData,
                     contentType: false,
@@ -962,6 +948,7 @@
 @endpush
 
 @push('styles')
+    <link rel="stylesheet" href="{{ asset('assets/css/summernote-bs4.min.css') }}">
     <style>
         .btn-group .btn.active {
             padding-left: 30px;

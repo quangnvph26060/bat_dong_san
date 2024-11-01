@@ -46,7 +46,7 @@
 <script>
     $(document).ready(function() {
 
-         window.previewImage = function(event, imgId) {
+        window.previewImage = function(event, imgId) {
             const file = event.target.files[0];
             const reader = new FileReader();
             reader.onload = function() {
@@ -57,6 +57,26 @@
                 reader.readAsDataURL(file);
             }
         }
+
+        window.removeImages = function(imgId, inputId) {
+            const imgElement = document.getElementById(imgId);
+            const inputElement = document.getElementById(inputId);
+
+            // Đặt src của ảnh thành trống hoặc ảnh mặc định
+            imgElement.src = '';
+
+            // Đặt giá trị của input là null
+            inputElement.value = null;
+
+            // Thêm một hidden input để báo cho server biết là ảnh cần xóa
+            const removeImageFlag = document.createElement('input');
+            removeImageFlag.type = 'hidden';
+            removeImageFlag.name = `${inputId}_remove`;
+            removeImageFlag.value = true;
+
+            inputElement.parentNode.appendChild(removeImageFlag);
+        }
+
 
         window.showToast = function(icon, title) {
             const Toast = Swal.mixin({

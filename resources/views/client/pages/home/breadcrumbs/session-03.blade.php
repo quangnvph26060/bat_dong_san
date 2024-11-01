@@ -14,17 +14,17 @@
                 class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-first-child panel-last-child"
                 data-index="8">
                 <h3 class="widget-title">
-                   {{ $session_03->title_s2 }}
+                   {!! $session_03->title_s2 !!}
                 </h3>
                 <div class="textwidget">
                     <p style="text-align: left">
-                        <iframe src="{{$session_03->link_video}}" width="560"
-                            height="314" allowfullscreen="allowfullscreen"></iframe>
+                            {!! $session_03->link_video !!}
                     </p>
                     <p>&nbsp;</p>
                 </div>
             </div>
         </div>
+
         <div id="pgc-29-3-1" class="panel-grid-cell">
             <div id="panel-29-3-1-0" class="so-panel widget widget_sow-headline panel-first-child"
                 data-index="9">

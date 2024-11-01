@@ -149,6 +149,7 @@ class SessionConfigController extends Controller
 
     protected function sessionTwo(Request $request)
     {
+
         $session_01 = ConfigSession01::first();
         $validator = Validator::make($request->all(), [
             'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -166,6 +167,11 @@ class SessionConfigController extends Controller
             $main_image = saveImages($request, 'main_image', 'public/images', 1241, 1755);
 
             $data['main_image'] = $main_image;
+        }
+
+        if ($request->has('image_container_session2_remove') && $request->input('image_container_session2_remove') == true) {
+            deleteImageStorage($session_01->main_image);
+            $data['main_image'] = null;
         }
 
         if (is_null($session_01)) {

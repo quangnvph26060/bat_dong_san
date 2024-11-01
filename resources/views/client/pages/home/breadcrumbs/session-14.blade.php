@@ -12,7 +12,7 @@
             <div id="panel-29-14-0-0" class="so-panel widget widget_sow-headline panel-first-child" data-index="47">
                 <div class="so-widget-sow-headline so-widget-sow-headline-default-b844f3af56bf-29">
                     <div class="sow-headline-container">
-                        <h2 class="sow-headline">{{ $session_09->title_s8 }}</h2>
+                        <h2 class="sow-headline">{!! $session_09->title_s8 !!}</h2>
                     </div>
                 </div>
             </div>

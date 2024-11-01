@@ -102,12 +102,8 @@
                                     class="panel-widget-style panel-widget-style-for-w62cda6c5a7d4b-0-2-0">
                                     <div class="textwidget">
                                         <p>
-                                            Hệ thống sẽ tự động gửi trọn bộ tài liệu
-                                            tới email của bạn trong vòng 1-3 phút.
-                                        </p>
-                                        <p>
                                             Vui lòng liên hệ Hotline
-                                            <span style="color: #171a4d">084.8888.788</span>&nbsp;nếu
+                                            <span style="color: #171a4d">{{ $config->hotline }}</span>&nbsp;nếu
                                             bạn không nhận được tài liệu.
                                         </p>
                                         <p></p>
@@ -119,39 +115,26 @@
                                                 <ul></ul>
                                             </div>
                                             <form action="" method="post" id="myForm">
-
                                                 <p>
-                                                    <label><span
-                                                            class="wpcf7-form-control-wrap your-name"><input
-                                                                type="text" name="your-name"
-                                                                value="" size="40"
+                                                    <label><span class="wpcf7-form-control-wrap your-name">
+                                                            <input type="text" name="name" value="" size="40"
                                                                 class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                                                aria-required="true"
-                                                                aria-invalid="false"
-                                                                placeholder="Họ tên*" /></span>
-                                                    </label><br />
-                                                    <label><span
-                                                            class="wpcf7-form-control-wrap your-email"><input
-                                                                type="email" name="your-email"
-                                                                value="" size="40"
+                                                                aria-required="true" aria-invalid="false" placeholder="Họ tên*" />
+                                                        </span> </label><br />
+                                                    <label><span class="wpcf7-form-control-wrap your-email">
+                                                            <input type="email" name="email" value="" size="40"
                                                                 class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
-                                                                aria-required="true"
-                                                                aria-invalid="false"
-                                                                placeholder="Email*" /></span>
+                                                                aria-required="true" aria-invalid="false" placeholder="Email*" />
+                                                        </span>
                                                     </label><br />
-                                                    <label><span
-                                                            class="wpcf7-form-control-wrap your-tel"><input
-                                                                type="tel" name="your-tel"
-                                                                value="" size="40"
+                                                    <label><span class="wpcf7-form-control-wrap your-tel">
+                                                            <input type="tel" name="phone" value="" size="40"
                                                                 class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel"
-                                                                aria-required="true"
-                                                                aria-invalid="false"
-                                                                placeholder="Số điện thoại*" /></span>
-                                                    </label><br />
-                                                    <input type="submit" value="ĐĂNG KÝ NGAY" class="wpcf7-form-control wpcf7-submit" />
+                                                                aria-required="true" aria-invalid="false"
+                                                                placeholder="ví dụ: 012.3456.789" />
+                                                        </span> </label><br />
                                                 </p>
-                                                <input type="hidden" class="wpcf7-pum"
-                                                    value='{"closepopup":false,"closedelay":0,"openpopup":false,"openpopup_id":0}' />
+                                                <input type="submit" value="ĐĂNG KÝ NGAY" class="wpcf7-form-control wpcf7-submit" />
                                                 <div class="wpcf7-response-output"
                                                     aria-hidden="true"></div>
                                             </form>

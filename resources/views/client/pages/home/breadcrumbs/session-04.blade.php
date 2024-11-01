@@ -13,7 +13,7 @@
                 <div class="so-widget-sow-headline so-widget-sow-headline-default-b844f3af56bf-29">
                     <div class="sow-headline-container">
                         <h2 class="sow-headline">
-                            {{ $session_04->title_s3 }}
+                            {!! $session_04->title_s3 !!}
                         </h2>
                     </div>
                 </div>

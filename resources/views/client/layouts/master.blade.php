@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" >
+    {{-- class="pum-open pum-open-overlay pum-open-scrollable" --}}
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@yield('titlee', $config->main_title)</title>
+    <title>@yield('titlee', $config->company_name)</title>
     <link rel="shortcut icon" href="{{ showImageStorage($config->icon) }}">
 
-    <meta name="title" content="@yield('title', $config->seo_title ?? $config->main_title)" />
+    <meta name="title" content="@yield('title', $config->seo_title ?? $config->company_name)" />
     <meta name="keywords" content="@yield('keywords', $config->seo_keyword)" />
     <meta name="description" content="@yield('description', $config->seo_description)" />
 
@@ -65,13 +65,13 @@
         </div>
     </div>
 
-    <div id="notificationms" class="animate" aria-hidden="false">
+    {{-- <div id="notificationms" class="animate" aria-hidden="false">
         <p><span>Quỳnh Trang</span> đã tải xuống bảng giá</p>
         <p class="notificationms-txt2 nhanbanggia pum-trigger" style="cursor: pointer">
             Click tải bảng giá ngay
         </p>
         <p class="notificationms-txt3"><label>8</label> phút trước</p>
-    </div>
+    </div> --}}
 
 
     @include('client.layouts.partials.scripts')
