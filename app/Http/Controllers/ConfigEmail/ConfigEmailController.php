@@ -10,9 +10,8 @@ class ConfigEmailController extends Controller
 {
     public function edit()
     {
-        $email = env('MAIL_USERNAME');
-        $password = env('MAIL_PASSWORD');
-        return view('admin.config.edit', compact('email', 'password'));
+        $email = env('MAIL_RECEIVED');
+        return view('admin.config.edit', compact('email'));
     }
 
     public function update(Request $request)
@@ -21,12 +20,10 @@ class ConfigEmailController extends Controller
             $request->all(),
             [
                 'email' => 'required|email',
-                'password' => 'required',
             ],
             __('request.messages'),
             [
                 'email' => 'Email',
-                'password' => 'Password',
             ]
         );
 
@@ -41,8 +38,7 @@ class ConfigEmailController extends Controller
         $email = $request->email;
         $password = $request->password;
         $env = file_get_contents(base_path('.env'));
-        $env = preg_replace('/MAIL_USERNAME=(.*)/m', 'MAIL_USERNAME=' . $email, $env);
-        $env = preg_replace('/MAIL_PASSWORD=(.*)/m', 'MAIL_PASSWORD=' . $password, $env);
+        $env = preg_replace('/MAIL_RECEIVED=(.*)/m', 'MAIL_RECEIVED=' . $email, $env);
         file_put_contents(base_path('.env'), $env);
         return response()->json([
             'status' => true,

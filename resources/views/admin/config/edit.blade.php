@@ -8,14 +8,9 @@
         <div class="card-body">
             <form action="" method="post" id="myForm">
                 <div class="row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-12">
                         <label for="" class="form-label">Email</label>
                         <input type="email" name="email" class="form-control" value="{{ $email }}">
-                        <small></small>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="" class="form-label">Mật khẩu ứng dụng</label>
-                        <input type="text" name="password" class="form-control" value="{{ $password }}">
                         <small></small>
                     </div>
                 </div>

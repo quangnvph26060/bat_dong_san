@@ -15,5 +15,10 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-
+<style>
+    #pum-121 {
+        display: none ;
+        /* Ẩn popup khi tải trang */
+    }
+</style>
 @stack('styles')

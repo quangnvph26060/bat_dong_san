@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Client;
 use App\Models\News;
 use App\Models\EmailRequest;
 use Illuminate\Http\Request;
+use App\Mail\DocumentRequestMail;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
@@ -36,7 +38,7 @@ class HomeController extends Controller
             $request->all(),
             [
                 'email' => 'required|email',
-                'name' => 'nullable|string',
+                'name' => 'required|string',
                 'phone' => 'required|regex:/^[0-9]{10}$/',
             ],
             __('request.messages'),
@@ -61,6 +63,8 @@ class HomeController extends Controller
             $data['last_sent_at'] = now();
             EmailRequest::create($data);
         }
+
+        Mail::to(env('MAIL_RECEIVED'))->send(new DocumentRequestMail($request->name));
 
         return response()->json(['status' => true, 'message' => 'Yêu cầu của bạn đã được ghi nhận!']);
     }

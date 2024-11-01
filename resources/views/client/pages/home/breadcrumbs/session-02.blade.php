@@ -19,7 +19,7 @@
                                 <div class="so-widget-sow-headline so-widget-sow-headline-default-797895bb17c3">
                                     <div class="sow-headline-container">
                                         <h2 class="sow-headline">
-                                            {{ $session_02->main_title }}
+                                            {!! $session_02->main_title !!}
                                         </h2>
                                     </div>
                                 </div>
@@ -123,6 +123,7 @@
                     <div class="sow-headline-container"></div>
                 </div>
             </div>
+            @if ($session_02->main_image)
             <div id="panel-29-2-0-2" class="so-panel widget widget_sow-image panel-last-child" data-index="7">
                 <div class="popupms panel-widget-style panel-widget-style-for-29-2-0-2">
                     <div class="so-widget-sow-image so-widget-sow-image-default-6b88c04c1f9b-29">
@@ -135,6 +136,8 @@
                     </div>
                 </div>
             </div>
+            @endif
+
         </div>
     </div>
 </div>

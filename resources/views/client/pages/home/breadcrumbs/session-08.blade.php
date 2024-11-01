@@ -15,7 +15,7 @@
                 <div class="so-widget-sow-headline so-widget-sow-headline-default-b844f3af56bf-29">
                     <div class="sow-headline-container">
                         <h2 class="sow-headline">
-                           {{ $session_06->main_title_s5 }}
+                           {!! $session_06->main_title_s5 !!}
                         </h2>
                     </div>
                 </div>

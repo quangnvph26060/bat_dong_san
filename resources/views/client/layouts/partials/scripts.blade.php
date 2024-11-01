@@ -204,23 +204,25 @@
         }
 
         $(document).on("submit", '#myForm', function(e) {
+
             e.preventDefault();
 
+            var form = $(this);
 
             $.ajax({
                 url: "{{ route('subscribe') }}",
                 method: 'POST',
                 data: {
                     _token: "{{ csrf_token() }}",
-                    name: $('input[name=name]').val(),
-                    email: $('input[name=email]').val(),
-                    phone: $('input[name=phone]').val(),
+                    name: form.find('input[name=name]').val(),
+                    email: form.find('input[name=email]').val(),
+                    phone: form.find('input[name=phone]').val(),
                 },
                 success: function(response) {
                     if (response.status) {
                         $('input').removeClass("is-invalid").siblings("small").removeClass(
                             "text-danger").text('');
-
+                        $('#pum-121').css("display", "none");
                         showToast('success', response.message);
                     } else {
                         $('input').removeClass("is-invalid").siblings("small").removeClass(
