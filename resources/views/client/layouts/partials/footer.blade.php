@@ -80,7 +80,7 @@
                         </p>
                         <p>Hotline: {{ $config->hotline }}</p>
                         <p>Email: {{ $config->email }}</p>
-                        <p>Website: www.tapdoanhungthinhcorp.com.vn</p>
+                        <p>Website: {{ url('/') }}</p>
                     </div>
                 </div>
             </div>

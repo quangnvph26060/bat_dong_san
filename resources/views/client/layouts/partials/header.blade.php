@@ -33,9 +33,9 @@
                 class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-87">
                 <a href="#uudai" aria-current="page">Ưu đãi</a>
             </li>
-            <li id="menu-item-88" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-88">
+            {{-- <li id="menu-item-88" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-88">
                 <a href="{{ route('news') }}">Tin tức</a>
-            </li>
+            </li> --}}
         </ul>
     </nav>
 </div>
