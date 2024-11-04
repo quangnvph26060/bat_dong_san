@@ -80,7 +80,7 @@
                         </p>
                         <p>Hotline: {{ $config->hotline }}</p>
                         <p>Email: {{ $config->email }}</p>
-                        <p>Website: {{ url('/') }}</p>
+                        <p>Website: {{ $config->website }}</p>
                     </div>
                 </div>
             </div>
@@ -136,7 +136,6 @@
         <div class="copyright">
             <p>
                 {{ $config->footer }}
-                <a href="https://www.mathsoftvn.com" target="_blank">Mathsoft Việt Nam</a>
             </p>
         </div>
     </div>

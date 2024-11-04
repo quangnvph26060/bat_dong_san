@@ -48,12 +48,19 @@
                                 <small></small>
                             </div>
                             <div class="col-md-6 form-group">
+                                <label for="" class="form-label">Website</label>
+                                <input type="text" class="form-control" value="{{ $config->website }}" name="website"
+                                    id="website" placeholder="Website...">
+                                <small></small>
+                            </div>
+                            <div class="col-md-6 form-group">
                                 <label for="" class="form-label">Seo title</label>
                                 <input type="text" class="form-control" value="{{ $config->seo_title }}" name="seo_title"
                                     id="seo_title" placeholder="Seo title...">
                                 <small></small>
                             </div>
-                            <div class="col-md-6 form-group">
+
+                            <div class="col-md-12 form-group">
                                 <label for="" class="form-label">Seo description</label>
                                 <input type="text" class="form-control" value="{{ $config->seo_description }}"
                                     name="seo_description" id="seo_description" placeholder="Seo description...">

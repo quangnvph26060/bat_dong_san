@@ -20,7 +20,6 @@ class ConfigurationInformationController extends Controller
 
     function save(Request $request)
     {
-
         $config = Config::first();
         try {
             DB::beginTransaction();
@@ -91,6 +90,7 @@ class ConfigurationInformationController extends Controller
                 'seo_description'       => 'nullable|string',
                 'seo_keyword'           => 'nullable|string',
                 'seo_title'            => 'nullable|string',
+                'website'               => 'nullable|string',
             ],
             __('request.messages'),
             [
