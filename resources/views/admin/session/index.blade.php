@@ -128,7 +128,7 @@
                     </div>
 
                     <div class="card">
-                        <div class="card-header">   
+                        <div class="card-header">
                             <h5>Main Image</h5>
                         </div>
                         <div class="card-body">
@@ -546,8 +546,6 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/summernote-bs4.min.js') }}"></script>
     <script>
         function initSummernote(selector, height) {
