@@ -1,5 +1,8 @@
 <script src="{{ asset('assets/js/core/jquery-3.7.1.min.js') }}"></script>
+
 <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
+
+<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
 
 <script src="{{ asset('assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
@@ -8,19 +11,17 @@
 <script src="{{ asset('assets/js/plugin/chart-circle/circles.min.js') }}"></script>
 <script src="{{ asset('assets/js/plugin/datatables/datatables.min.js') }}"></script>
 <script src="{{ asset('assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
-{{-- <script src="{{ asset('assets/js/plugin/jsvectormap/jsvectormap.min.js') }}"></script> --}}
-{{-- <script src="{{ asset('assets/js/plugin/jsvectormap/world.js') }}"></script> --}}
+
 <script src="{{ asset('assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
 <script src="{{ asset('assets/js/plugin/webfont/webfont.min.js') }}"></script>
 <script src="{{ asset('assets/js/kaiadmin.min.js') }}"></script>
 <script src="{{ asset('assets/js/kaiadmin.js') }}"></script>
 <script src="{{ asset('assets/js/setting-demo.js') }}"></script>
 <script src="{{ asset('assets/js/setting-demo2.js') }}"></script>
-{{-- <script src="{{ asset('assets/js/demo.js') }}"></script> --}}
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/js/bootstrap-notify.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 
 
 <script>
