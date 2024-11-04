@@ -41,7 +41,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/css/bootstrap-notify.css">
 
 
-<title>{{ isset($title) ? $title : 'document' }}</title>
+<title>@yield('title', env('APP_NAME'))</title>
 
 @stack('styles')
 

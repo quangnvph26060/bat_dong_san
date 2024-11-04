@@ -420,6 +420,24 @@ class SessionConfigController extends Controller
 
     protected function sessionEight(Request $request)
     {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'title' => 'required|string',
+                // 'displayed_location' => 'nullable|string',
+            ],
+            __('request.messages'),
+            [
+                'title' => 'Tiêu đề'
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'message' => $validator->errors()->first()
+            ]);
+        }
         // Sử dụng transaction để đảm bảo tất cả các thao tác lưu trữ thành công
         DB::beginTransaction();
         try {
@@ -497,7 +515,6 @@ class SessionConfigController extends Controller
             }
 
             $data['images_s8'] = $oldImage;
-
         }
 
         if (is_null($session_09)) {
@@ -515,13 +532,19 @@ class SessionConfigController extends Controller
     public function destroy()
     {
         $id = request()->input('id');
-        $title = ConfigSession07::find($id);
+        $title = ConfigSession07::with('toas.images')->find($id);
 
         if (is_null($title)) {
             return response()->json([
                 'status' => false,
                 'message' => 'Không tìm thấy title!'
             ]);
+        }
+
+        foreach ($title->toas as $toa) {
+            foreach ($toa->images as $image) {
+                deleteImageStorage($image->image);
+            }
         }
 
         $title->delete();
@@ -532,27 +555,117 @@ class SessionConfigController extends Controller
         ]);
     }
 
-    public function edit()
+    public function edit(string $id)
     {
-        $id = request()->input('id');
         $title = ConfigSession07::with('toas.images')->find($id);
 
-        if (is_null($title)) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Không tìm thấy title!'
-            ]);
-        }
+        if (! $title) abort(404);
+        // $id = request()->input('id');
+        // $title = ConfigSession07::with('toas.images')->find($id);
 
-        return response()->json([
-            'status' => true,
-            'title' => $title,
-        ]);
+        // if (is_null($title)) {
+        //     return response()->json([
+        //         'status' => false,
+        //         'message' => 'Không tìm thấy title!'
+        //     ]);
+        // }
+
+        // return response()->json([
+        //     'status' => true,
+        //     'title' => $title,
+        // ]);
+        return view('admin.session.edit', compact('title'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request, string $id)
     {
-        dd($request->all());
+        $validated = $request->validate(
+            [
+                'title' => 'required|string|max:255|unique:config_session_07,title_s7,' . $id,
+                'buildings.*.name' => 'required|string|max:255',
+                'buildings.*.images' => 'nullable|array|min:1',
+                'buildings.*.images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            ],
+            __('request.messages'),
+            [
+                'title' => 'Tiêu đề',
+                'buildings.*.name' => 'Tên tòa',
+                'buildings.*.images.*' => 'Hình ảnh phần tòa',
+            ]
+        );
+
+        DB::beginTransaction();
+        try {
+            if ($request->deleted_images) {
+                $deletedImagesArray = explode(',', trim($request->deleted_images, '[]'));
+
+                foreach ($deletedImagesArray as $imageId) {
+                    $image = BuildingImage::find($imageId);
+                    if ($image) {
+                        deleteImageStorage($image->image);
+                        $image->delete();
+                    }
+                }
+            }
+
+            if ($request->deleted_buildings) {
+                $deletedBuildingsArray = explode(',', trim($request->deleted_buildings, '[]'));
+                foreach ($deletedBuildingsArray as $buildingId) {
+                    $building = Building::with('images')->find($buildingId);
+
+                    foreach ($building->images as $image) {
+                        deleteImageStorage($image->image);
+                    }
+                    if ($building) {
+                        $building->delete();
+                    }
+                }
+            }
+
+            foreach ($request->buildings ?? [] as $buildingId => $building) {
+                $buildingRecord = Building::find($buildingId);
+                if ($buildingRecord) {
+                    $buildingRecord->update([
+                        'building_name' => $building['name'],
+                    ]);
+                } else {
+                    $newRecord = Building::create([
+                        'building_name' => $building['name'],
+                        'title_id' => $id
+                    ]);
+                }
+
+                if (isset($building['images']) && is_array($building['images'])) {
+                    foreach ($building['images'] as $key => $image) {
+                        $imagePath = saveImage($image, 'building_images', 2560, 1810);
+
+                        if (BuildingImage::find($key)) {
+
+                            BuildingImage::where('id', $key)->update([
+                                'image' => $imagePath,
+                            ]);
+                        } else {
+
+                            BuildingImage::create([
+                                'building_id' => $newRecord->id,
+                                'image' => $imagePath,
+                            ]);
+                        }
+                    }
+                }
+            }
+
+            ConfigSession07::where('id', $id)->update([
+                'title_s7' => $request->title,
+            ]);
+
+            DB::commit();
+
+            return back();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json(['status' => false, 'message' => 'Error saving data', 'error' => $e->getMessage(), 'line' => $e->getLine()], 500);
+        }
     }
 
     function sessionBanner(Request $request)
